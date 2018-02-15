@@ -1,12 +1,12 @@
 'use strict';
 
-let lineCount: number = 4;
-let tree: string = '*';
-let s: string = '';
+let lineCount:number = 4;
+let tree:string = '*';
+let s:string = '';
 
-for ( let i: number = 1; i <= lineCount; i++) {
-    for (let k: number = (lineCount-i); k >= 0; k-- ) {
-        s+= ' ';
+for (let i:number = 1; i <= lineCount; i++) {
+    for (let k:number = (lineCount-i); k > 0; k-- ) {
+        s += ' ';
     }    
     console.log(s+tree);
     s = '';
