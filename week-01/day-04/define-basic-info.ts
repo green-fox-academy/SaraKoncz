@@ -11,8 +11,8 @@ let myAge: number = 24;
 let myHeight: number = 1.77;
 let myStatus: boolean = false;
 
-console.log('My name: ', myName);
-console.log('My age: ', myAge);
-console.log('My height: ', myHeight);
-console.log('My marriage status: ', myStatus);
+console.log(`My name: ${myName}`); 
+console.log(`My age: ${myAge}`);
+console.log(`My height: ${myHeight}`);
+console.log(`My marriage status: ${myStatus}`);
 
