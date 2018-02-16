@@ -8,5 +8,5 @@ let currentSeconds: number = 42;
 // day if the current time is represented by these variables
 
 let secondsOfADay: number = 24 * 60 * 60;
-let remainingSeconds: number = secondsOfADay - (currentHours * currentMinutes * currentSeconds);
+let remainingSeconds: number = secondsOfADay - ((currentHours * 60 * 60) + (currentMinutes * 60) + currentSeconds);
 console.log(remainingSeconds);
