@@ -19,7 +19,7 @@ function drawSquare(x: number, y: number) {
 
 
 for (let i = 0; i < 3; i++) {
-    let a: number = (Math.random() * 200);
-    let b: number = (Math.random() * 200);
+    let a: number = (Math.random() * (598-sqLength) + 1);
+    let b: number = (Math.random() * (398-sqLength) + 1);
     drawSquare(a, b);
 }
