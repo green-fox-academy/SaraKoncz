@@ -7,40 +7,63 @@ const ctx = canvas.getContext('2d');
 // Draw four different size and color rectangles.
 // Avoid code duplication.
 
+// //The horizontal line length will be called "a" and the vertical "b"
+// let a: number;
+// let b: number;
+// //"x" and "y" will be the coordinates of the starting point
+// let x: number;
+// let y: number;
+
+
+// function drawRectangle (x: number, y: number, a: number, b: number) {
+// //Line 1
+// ctx.lineWidth = 1;
+// ctx.strokeStyle = "blue";
+// ctx.beginPath();
+// ctx.moveTo(x,y);
+// ctx.lineTo((x+a),y);
+// ctx.stroke();
+
+// //Line 2
+// ctx.beginPath();
+// ctx.moveTo((x+a),y);
+// ctx.lineTo((x+a),(y+b));
+// ctx.stroke();
+
+// //Line 3
+// ctx.beginPath();
+// ctx.moveTo((x+a),(y+b));
+// ctx.lineTo(x,(y+b));
+// ctx.stroke();
+
+// //Line 4
+// ctx.beginPath();
+// ctx.moveTo(x,(y+b));
+// ctx.lineTo(x,y);
+// ctx.stroke();
+// }
+
+// for (let i = 0; i < 4; i++){
+//     let c: number = (Math.random()*200);
+//     let d: number = (Math.random()*200);
+//     let z: number = (Math.random()*200);
+//     let w: number = (Math.random()*200);
+//     drawRectangle(z,w,c,d);
+// }
+
+//Now let's do it with filled rectangles:
 //The horizontal line length will be called "a" and the vertical "b"
-let a: number;
-let b: number;
+let x1: number;
+let x2: number;
 //"x" and "y" will be the coordinates of the starting point
-let x: number;
-let y: number;
+let y1: number;
+let y2: number;
 
 
-function drawRectangle (x: number, y: number, a: number, b: number) {
-//Line 1
-ctx.lineWidth = 1;
-ctx.strokeStyle = "blue";
-ctx.beginPath();
-ctx.moveTo(x,y);
-ctx.lineTo((x+a),y);
-ctx.stroke();
-
-//Line 2
-ctx.beginPath();
-ctx.moveTo((x+a),y);
-ctx.lineTo((x+a),(y+b));
-ctx.stroke();
-
-//Line 3
-ctx.beginPath();
-ctx.moveTo((x+a),(y+b));
-ctx.lineTo(x,(y+b));
-ctx.stroke();
-
-//Line 4
-ctx.beginPath();
-ctx.moveTo(x,(y+b));
-ctx.lineTo(x,y);
-ctx.stroke();
+function drawRectangle (x1, x2, y1, y2) {
+    ctx.fillStyle= '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+    ctx.fillRect(x1,x2,y1,y2);
+    
 }
 
 for (let i = 0; i < 4; i++){
