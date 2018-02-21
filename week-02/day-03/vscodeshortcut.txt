@@ -1,0 +1,25 @@
+
+VS Code Shortcut Selection by Sári
+
+For Mac:https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+For Windows: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+
+Open Command Palette: Ctrl+Shift+P
+Color Theme Selection: Ctrl+K, Ctrl+T
+Zoom In/Out: Ctrl+Shift+ó and Ctrl+Shift+-
+Open Keyboard Shortcuts: Ctrl+K, Ctrl+S
+Add Line Comment: Ctrl+K, Ctrl+C
+Remove Line Comment: Ctrl+K, Ctrl+U
+Change All Occurences: Ctrl+F2    --> Peti! This is the command that you are looking for <3
+Copy Line Down: Shift+Alt+Down Arrow
+Copy Line Up: Shift+Alt+Up Arrow
+Delete Line: Ctrl+Shift+K
+Delete Line: Ctrl+Shift+K
+Delete Word Left: Ctrl+Backspace
+Delete Word Right: Ctrl+Delete
+Find: Ctrl+F
+    jump next: F3 (or enter)
+    jump right: Shift+F3
+Switch between windows/GoBack: Alt + Left or Right arrow
+Format Content in the Entire Document: Shigt + Alt + F
+Toggle Integrated Terminal: Ctrl + ö
