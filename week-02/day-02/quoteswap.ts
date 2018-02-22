@@ -7,9 +7,9 @@
 // Expected output: "What I cannot create I do not understand."
 
 let words: string[] = ['What', 'I', 'do', 'create,', 'I', 'cannot', 'not', 'understand.'];
-function quoteSwap(mixed: string[]){
+function quoteSwap(mixed: string[]) {
     let order: string;
-    order = mixed[0]+ ' '+mixed[1]+' '+ mixed[5]+' '+ mixed[3]+' '+ mixed[4]+ ' '+ mixed[2]+' '+ mixed[6]+' '+mixed[7];
+    order = mixed[0] + ' ' + mixed[1] + ' ' + mixed[5] + ' ' + mixed[3] + ' ' + mixed[4] + ' ' + mixed[2] + ' ' + mixed[6] + ' ' + mixed[7];
     return order;
 }
 console.log(quoteSwap(words));
