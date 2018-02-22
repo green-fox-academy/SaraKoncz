@@ -1,28 +1,28 @@
 'use strict';
 
-let lineCount: number = 7;
-let tree:string = '*';
-let s:string = '';
+let lineCount: number = 9;
+let star:string = '*';
+let space:string = '';
 
 if (lineCount%2 ===0) {
     console.log('Diamonds are odd. Please try again with an odd number!');
 } else {
 for (let i:number = 1; i <= ((lineCount+1)/2); i++) {
     for (let k:number = (((lineCount+1)/2)-i); k > 0; k-- ) {
-        s += ' ';
+        space += ' ';
     }    
-    console.log(s+tree);
-    s = '';
-    tree += '**';
+    console.log(space+star);
+    space = '';
+    star += '**';
 }
 
 for (let i:number = 1; i <= ((lineCount-1)/2); i++) {
-    tree ='*';
-    s += ' ';
+    star ='*';
+    space += ' ';
     for (let k:number = ((lineCount)-2*i); k > 1; k-- ) {
-        tree += '*';
+       star += '*';
     }    
-    console.log(s+tree);    
+    console.log(space+star);    
 }
 }
 
