@@ -28,14 +28,14 @@ for (let i = 0; i <= linesCount; i++) {
 // now wee need to set them again to the original value and insted of Zero-s, use Heights
 y1 = 0;
 x2 = height;
-let x1Height: number = height;
-let y2Height: number = height;
+x1Zero = height;
+y2Zero = height;
 
 for (let i = 0; i <= linesCount; i++) {      
     ctx.beginPath();
-    ctx.moveTo(x1Height, y1);
+    ctx.moveTo(x1Zero, y1);
     ctx.strokeStyle = 'blue';    
-    ctx.lineTo(x2, y2Height);
+    ctx.lineTo(x2, y2Zero);
     x2 -= a;
     ctx.stroke();   
     y1 += a;   
