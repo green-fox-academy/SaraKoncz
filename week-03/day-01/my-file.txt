@@ -1,4 +1,0 @@
-I am my-file.txt and this is my first line.
-This is my second line.
-This is my third line.
-The end (line4)
