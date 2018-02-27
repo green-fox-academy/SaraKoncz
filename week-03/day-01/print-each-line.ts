@@ -10,13 +10,12 @@ const fs = require('fs');
 
 function printLines() {
     try {
-        let fileContent = fs.readFileSync('my-file.txt', 'utf-8');
-        console.log(fileContent);
+        let fileContent = fs.readFileSync('myfile.txt', 'utf-8', console.error('file not found'));
+        console.log(fileContent);   
     }
     catch (e) {
-        console.log('File not found');
-    }
-
+        console.log(e); //with this I print out the whole error message but it will continue running because I 'catched' the problem
+    } 
 }
 
 printLines();
