@@ -5,12 +5,9 @@
 'use strict';
 const fs = require('fs');
 
-let fileContent = 'Sara Koncz';
-
 try {
-fs.writeFileSync('../day-06/my-file.txt', fileContent);
-let myFileContent = fs.readFileSync('my-file.txt', 'utf-8');
-console.log(myFileContent);
+fs.writeFileSync('../day-06/my-file.txt', 'Sara');
+console.log(fs.readFileSync('my-file.txt', 'utf-8'));
 }
 catch (e) {
     console.log('unable to write file: my-file.txt');
