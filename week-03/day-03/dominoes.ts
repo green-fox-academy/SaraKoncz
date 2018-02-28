@@ -20,22 +20,23 @@ function print(dominoes: Domino[]) {
 
 let dominoes = initializeDominoes();
 let dominoesOrg = [];
-let length: number = dominoes.length;
-function orderOfDominos(dominoesOrg, dominoes, length) {
-  dominoesOrg[0] = dominoes[0];
-  for (let i = 0; i < length - 1; i++) {
-    let dominoEnd = (dominoesOrg[i].values[1]);
-    
-    for (let j = 0; j < length - 1; j++) {
-      let nextDominoStart = (dominoes[j + 1].values[0]);
-      
+//let length: number = dominoes.length;
+
+function orderOfDominos(dominoesOrgF, dominoesF) {
+  dominoesOrgF[0] = dominoesF[0];
+  for (let i = 0; i < dominoesF.length - 1; i++) {
+    let dominoEnd = (dominoesOrgF[i].values[1]);
+
+    for (let j = 0; j < dominoesF.length - 1; j++) {
+      let nextDominoStart = (dominoesF[j + 1].values[0]);
+
       if (dominoEnd == nextDominoStart) {
-        dominoesOrg.push(dominoes[j+1]);
+        dominoesOrgF.push(dominoesF[j + 1]);
       }
 
     }
   }
 }
 
-orderOfDominos(dominoesOrg, dominoes, length);
+orderOfDominos(dominoesOrg, dominoes);
 print(dominoesOrg);
