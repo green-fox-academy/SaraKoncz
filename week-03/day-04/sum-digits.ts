@@ -5,14 +5,13 @@
 let divide: number = 10;
 let sum: number = 0;
 let num: number = 12481;
-function sumDigits (num: number): number {  
-  let b: number = Math.floor(num%10);
+function sumDigits(num: number): number {
+  let b: number = Math.floor(num % 10);
   console.log(b);
-  if (num < 1){
+  if (num < 1) {
     return 0;
   }
-  
-  return b += sumDigits((num/10));
+  return b += sumDigits((num / 10));
 }
 
 console.log(sumDigits(12481));
