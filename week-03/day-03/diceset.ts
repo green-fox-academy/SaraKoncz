@@ -37,6 +37,12 @@ class DiceSet {
   }
 }
 
+let myDice = new DiceSet();
+myDice.roll();
+myDice.getCurrent();
+
+//my Code starts here:
+
 function sumTheDice(collectorF, numLengthF) {
   let sumofDice: number = 0;
   for (let i = 0; i < numLengthF; i++) {
@@ -45,9 +51,6 @@ function sumTheDice(collectorF, numLengthF) {
   return sumofDice;
 }
 
-let myDice = new DiceSet();
-myDice.roll();
-myDice.getCurrent();
 let a: number = 0;
 
 do {

@@ -2,11 +2,11 @@ class Thing {
   private name: string;
   private completed: boolean;
 
-  constructor(name: string) {
-    this.name = name;
+  constructor(name: string){
+      this.name = name;
   }
   public complete() {
-    this.completed = true;
+      this.completed = true;
   }
   getName(): string {
     return this.name;
@@ -15,4 +15,4 @@ class Thing {
     return this.completed;
   }
 }
-export { Thing };
+export {Thing};
