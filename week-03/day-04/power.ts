@@ -5,10 +5,10 @@ function powerN(base: number, n: number): number {
   let multi: number = 1;
   if (n < 1) {
     return multi;
-  }  
+  }
   multi *= base;
   n -= 1;
-  return multi *= powerN (base, n);
+  return multi *= powerN(base, n);
 }
 
-console.log(powerN(4,3));
+console.log(powerN(4, 3));
