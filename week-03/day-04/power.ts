@@ -12,3 +12,16 @@ function powerN(base: number, n: number): number {
 }
 
 console.log(powerN(4, 3));
+
+
+//more simple solution:
+function powerN2(base: number, n: number) {
+  if (n < 1) {
+    return 1;
+  } else {
+    base *= powerN2(base, n - 1);
+    return base;
+  }
+}
+
+console.log(powerN2(4, 3));
