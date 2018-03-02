@@ -26,22 +26,18 @@ function countLines(fileName: string) {
     console.log('zero');
   }
 }
-
 let lineLength: number = (countLines('log.txt'));
 
 function createIPArray(fileName: string) {
   //no we create a string[] where each variable is each line
   let stringOfLog: string = fs.readFileSync(fileName, 'utf-8');
   let arrayOfLog: string[] = stringOfLog.split('/\r\n');
-  //console.log(arrayOfLog);
 
-  //now we check by looking at the first line of the array thata from which index till which one the IP adress is in the line
-  //console.log(arrayOfLog[0]);
+  //now we check by looking at the first line of the array that from which index 
+  //till which one the IP adress is in the line
   let startIP: number = arrayOfLog[0].indexOf('3');
   let endIP: number = arrayOfLog[0].indexOf('45');
   endIP = endIP + 2;
-  //console.log(startIP);
-  //console.log(endIP);
 
   //now we create the string[] with the IP adresses
   let arrayIP: string[] = [];
@@ -61,16 +57,10 @@ function getPostRatio(fileName: string, lineLength: number) {
     if (arrayOfLog[i].indexOf('GET') >= 0) {
       gets++;
     }
-  }
-  //console.log(gets);
-
+  } 
   let posts: number = 0;
   posts = lineLength - gets;
-  //console.log(posts);
   return (gets / posts);
 }
 
 console.log(getPostRatio('log.txt', lineLength));
-
-
-
