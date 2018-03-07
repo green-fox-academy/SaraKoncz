@@ -39,18 +39,12 @@ abstract class Animal {
 }
 
 class Reptile extends Animal {
-  constructor(name: string, age: number, food: string, hunger: number, tired: number) {
-    super(name, age, food, hunger, tired);
-  }
   breed(): string {
     return 'egg';
   }
 }
 
 class Mammal extends Animal {
-  constructor(name: string, age: number, food: string, hunger: number, tired: number) {
-    super(name, age, food, hunger, tired);
-  }
   breed(): string {
     return 'cute babies';
   }
@@ -58,10 +52,7 @@ class Mammal extends Animal {
 }
 
 class Bird extends Animal {
-  constructor(name: string, age: number, food: string, hunger: number, tired: number) {
-    super(name, age, food, hunger, tired);
-  }
-  breed(): string {
+   breed(): string {
     return 'egg';
   }
 }
