@@ -51,9 +51,24 @@ class Mammal extends Animal {
 
 }
 
-class Bird extends Animal {
+interface Flyable {
+  land();
+  fly();
+  takeOff();
+}
+
+class Bird extends Animal implements Flyable {
    breed(): string {
     return 'egg';
+  }
+  land(): string {
+    return 'I land without a big noise.'
+  }
+  fly(): string {
+    return 'I can fly for 2 hours.'
+  }
+  takeOff(): string {
+    return 'I can takeOff from my nest.'
   }
 }
 
@@ -73,3 +88,5 @@ console.log("How hungry you are?");
 console.log(reptile.getName() + " is " + reptile.hungry() + " hungry.");
 console.log(mammal.getName() + " is " + mammal.hungry() + " hungry.");
 console.log(bird.getName() + " is " + bird.hungry() + " hungry.");
+
+export {Bird};
