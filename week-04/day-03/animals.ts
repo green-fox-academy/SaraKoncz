@@ -57,8 +57,8 @@ interface Flyable {
   takeOff();
 }
 
-class Bird extends Animal implements Flyable {
-   breed(): string {
+export class Bird extends Animal implements Flyable {
+  breed(): string {
     return 'egg';
   }
   land(): string {
@@ -88,5 +88,3 @@ console.log("How hungry you are?");
 console.log(reptile.getName() + " is " + reptile.hungry() + " hungry.");
 console.log(mammal.getName() + " is " + mammal.hungry() + " hungry.");
 console.log(bird.getName() + " is " + bird.hungry() + " hungry.");
-
-export {Bird};

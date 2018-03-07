@@ -1,5 +1,5 @@
 'use strict';
-import {Bird} from "./animals";
+import { Bird } from "./animals";
 /*Create a Flyable interface
 it should have land, fly and takeOff methods (TakeOff in C#)
 Create an abstract Vehicle class
@@ -8,6 +8,7 @@ Extend Helicopter class from Vehicle
 implement your Flyable interface
 Extend Bird from your abstract Animal class (zoo exercise)
 implement yourˇFlyable interface*/
+
 interface Flyable {
   land();
   fly();
@@ -23,9 +24,9 @@ abstract class Vehicle {
     this.size = size;
     this.age = age;
   }
-getType(): string{
-return this.type;
-}
+  getType(): string {
+    return this.type;
+  }
 }
 
 class Helicopter extends Vehicle implements Flyable {
