@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.item-green {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  display: inline-block;
+}
+
+.item-yellow {
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+  display: inline-block;
+}
+
+.item-purple {
+  height: 50px;
+  width: 50px;
+  background-color: purple;
+  display: inline-block;
+}
