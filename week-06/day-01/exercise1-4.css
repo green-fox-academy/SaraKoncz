@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.item {
+  width: 50px;
+  min-height: 50px;
+  display: inline-block;
+}
+
+.green {
+  background-color: green;
+  flex: 1;
+}
+
+.yellow {
+  background-color: yellow;
+  flex: 2;
+}
+
+.purple {
+  background-color: purple;
+  flex: 1;
+}
