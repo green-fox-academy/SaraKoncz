@@ -9,11 +9,11 @@
   width: 800px;
   height: 400px;
   justify-content: space-around;
+  align-items: center;
 }
 
 .purple {
   background-color: purple;
   width: 100px;
   height: 100px;
-  align-self: center; 
 }
