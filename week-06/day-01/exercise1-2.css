@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 100%;
+  display: flex;
+}
+
+.item-green {
+  height: 50px;
+  min-width: 50px;
+  flex: 1;
+  background-color: green;
+  display: inline-block;
+}
+
+.item-yellow {
+  height: 50px;
+  min-width: 50px;
+  flex: 2;
+  background-color: yellow;
+  display: inline-block;
+}
+
+.item-purple {
+  height: 50px;
+  min-width: 50px;
+  flex: 1;
+  background-color: purple;
+  display: inline-block;
+}
