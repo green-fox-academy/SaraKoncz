@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.screen {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+header {
+  background-color: purple;
+  width: 800px;
+  margin: 0 auto;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  background-color: cyan;
+  height: 30px;
+  min-width: 80px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.main {    
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+article {
+  width: 100%;
+  background-color: yellow; 
+  height: 100%;
+  
+  display: block;
+}
+
+aside {
+  width: 200px;
+  background-color: green;
+  position: fixed;
+  top: 120px;
+  right: 0px;
+  height: 100%;  
+  display: block;
+}
