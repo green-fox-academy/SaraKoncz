@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: QuerySelector</title>
+</head>
+
+<body>
+  <section class="container">
+    <div id="b325" class="asteroid">The King</div>
+    <div class="asteroid b326">The Conceited Man</div>
+  </section>
+  <p class="asteroid big">The Businessman</p>
+  <div class="asteroid b329 big">The Lamplighter</div>
+  <script>
+    const king = document.querySelector('#b325');
+    console.log(king);
+    const businesslamp = document.querySelectorAll('.big');
+    console.log(businesslamp[0]);
+    console.log(businesslamp[1]);
+    const conceitedKing = document.querySelectorAll('#b325, .b326');
+    alert(conceitedKing[0]);
+    alert(conceitedKing[1]);
+    const noBusiness = (document.querySelectorAll('#b325, .b326, .b329'));
+    console.log(noBusiness[0]);
+    console.log(noBusiness[1]);
+    console.log(noBusiness[2]);
+  </script>
+</body>
+
+</html>
+<!-- You can work in the html or in a separate js file. Like:
+  
+      1. store the element that says 'The King' in the 'king' variable.
+      console.log it.
+      2. store 'The Businessman' and 'The Lamplighter'
+      in the 'businessLamp' variable.
+      console.log each of them.
+      3. store 'The King' and 'The Conceited Man'
+      in the 'conceitedKing' variable.
+      alert them one by one.
+      4. store 'The King', 'The Conceited Man' and 'The Lamplighter'
+      in the 'noBusiness' variable.
+      console.log each of them.
