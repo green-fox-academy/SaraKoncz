@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+
+<body>
+  <p class="apple">apple</p>
+  <p class="balloon">banana</p>
+  <p class="cat">car</p>
+  <p class="animals">goat rabbit
+    <strong>cat</strong> dog</p>
+
+  <script>
+    var container = document.querySelectorAll('p');
+    var lastOne = document.querySelector('.animals');
+    console.log(lastOne.innerHTML);
+    container.forEach( e => {
+      e.innerHTML = lastOne.innerHTML
+    });
+  </script>
+
+</body>
+
+</html>
+<!-- You can work in the html or in a separate js file. Like:
+fill every paragraph with the last one's content.
+fill every paragraph with the last one's content keeping the cat strong.
