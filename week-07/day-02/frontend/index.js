@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const PORT = 8080;
+const bodyParser = require('body-parser');
 
 app.use('/assets', express.static('assets'));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
@@ -29,7 +31,7 @@ app.get('/greeter', (req, res) => {
       error: "Please provide a name!",
     })
   }
- else if (req.query.title === undefined) {
+  else if (req.query.title === undefined) {
     res.json({
       error: "Please provide a title!",
     })
@@ -46,10 +48,47 @@ app.get('/appenda/:appended', (req, res) => {
     res.status(404);
   } else {
     res.json({
-     appended: req.params.appended+'a'
+      appended: req.params.appended + 'a'
     })
   }
 });
+
+
+app.post('/dountil/:what', (req, res) => {
+  const what = req.params.what;
+  if (req.params.what === undefined) {
+    res.json({
+      error: 'Please provide a number!'
+    });
+  }
+  else if (what === 'sum') {
+    const sumThis = req.body.until;
+    var sumResult = 0;
+    for (var i = 0; i <= sumThis; i++) {
+      sumResult += i;
+    }
+    res.json({
+      "result": sumResult,
+    })
+  }
+  else if (what === 'factor') {
+    const factorThis = req.body.until;
+    var factorResult = 1;
+    if (factorThis === 0) {
+      factorResult = 1;
+    }
+    else {
+    for (var i = 1; i <= factorThis; i++) {
+      factorResult= factorResult*i;
+    }
+  }
+    res.json({
+      "result": factorResult,
+    })
+  }
+  res.end();
+});
+
 
 
 app.listen(PORT, () => {
