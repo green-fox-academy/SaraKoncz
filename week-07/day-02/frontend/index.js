@@ -11,7 +11,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
-
 app.get('/doubling', (req, res) => {
   if (req.query.input === undefined) {
     res.json({
@@ -89,7 +88,7 @@ app.post('/dountil/:what', (req, res) => {
   res.end();
 });
 
-app.post('/arrays/', (req, res) => {
+app.post('/arrays', (req, res) => {
   const what = req.body.what;
   const numbers = req.body.numbers;
   if (what === undefined) {
@@ -131,6 +130,39 @@ app.post('/arrays/', (req, res) => {
   res.end();
 });
 
+app.post('/sith', (req, res) => {
+  const text = req.body.text;
+  const randomText = ['Arrgh', 'Err', 'Err, err', 'Hmm', 'Uhmm'];
+  if (typeof text !== 'string'){
+    res.json({
+      error: "Feed me some text you have to, padawan young you are. Hmmm."
+    })
+  } else {
+    var arrayOfSentences = [];
+    var arrayOfWords = [];
+    var tempText = '';
+    var yodaText = '';
+    arrayOfSentences = text.split('. ');
+    arrayOfSentences.forEach((sentence, index) => {
+      arrayOfWords.push(sentence.toLowerCase().split(' '))
+    })
+    arrayOfWords.forEach((e, i, a) =>{
+      if (e.length > 1){
+        e.forEach((element, index, array) => {          
+          if (i%2 ===0){
+            yodaText += element;
+            yodaText += " ";
+          }
+        })
+      }
+    })
+    
+    res.json({
+      sith_text: yodaText
+    })
+  }
+  res.end();
+});
 
 app.listen(PORT, () => {
   console.log(`Server is up on port ${PORT} `);
