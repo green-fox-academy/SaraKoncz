@@ -78,10 +78,10 @@ app.post('/dountil/:what', (req, res) => {
       factorResult = 1;
     }
     else {
-    for (var i = 1; i <= factorThis; i++) {
-      factorResult= factorResult*i;
+      for (var i = 1; i <= factorThis; i++) {
+        factorResult = factorResult * i;
+      }
     }
-  }
     res.json({
       "result": factorResult,
     })
@@ -89,6 +89,47 @@ app.post('/dountil/:what', (req, res) => {
   res.end();
 });
 
+app.post('/arrays/', (req, res) => {
+  const what = req.body.what;
+  const numbers = req.body.numbers;
+  if (what === undefined) {
+    res.json({
+      error: 'Please provide what to do with the numbers!'
+    });
+  } else if (numbers === undefined) {
+    res.json({
+      error: 'Please provide the numbers!'
+    });
+  }
+  else if (what === 'sum') {
+    var sumResult = 0;
+    for (var i = 0; i < req.body.numbers.length; i++) {
+      sumResult += req.body.numbers[i];
+    }
+    res.json({
+      "result": sumResult,
+    })
+  }
+  else if (what === 'multiply') {
+    var multiplyResult = 1;
+    for (var i = 0; i < req.body.numbers.length; i++) {
+      multiplyResult = multiplyResult * req.body.numbers[i];
+    }
+    res.json({
+      "result": multiplyResult,
+    })
+  }
+  else if (what === 'double') {
+    var doubleResult = [];
+    for (var i = 0; i < req.body.numbers.length; i++) {
+      doubleResult.push(req.body.numbers[i]*2);
+    }
+    res.json({
+      "result": doubleResult,
+    })
+  }
+  res.end();
+});
 
 
 app.listen(PORT, () => {
