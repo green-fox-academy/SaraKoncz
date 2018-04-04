@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Button Disable</title>
+  <link type="text/css" rel="stylesheet" property="stylesheet" media="screen" href="buttonDisable.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <form>
+      <p>What is your favourite pet?</p>
+      <div>
+        <input type="radio" id="dog" name="animal" value="dog">
+        <label for="dog">Dog</label>
+
+        <input type="radio" id="cat" name="animal" value="cat">
+        <label for="cat">Cat</label>
+
+        <input type="radio" id="victor" name="animal" value="victor">
+        <label for="victor">Victor the goldfish</label>
+      </div>
+    </form>
+    <form>
+      <p>Do you want to sign up for cat facts?</p>
+      <div>
+        <input type="radio" id="yes" name="lovecats" value="yes">
+        <label for="yes">Yes</label>
+
+        <input type="radio" id="no" name="lovecats" value="no">
+        <label for="no">No</label>
+      </div>
+    </form>
+    <form>
+      <div>
+        <button class="submitbuttons" id="loveCatsButton" type="submit">I love cats</button>
+      </div>
+      <div>
+        <button class="submitbuttons" id="signUpButton" type="submit">Sign Up</button>
+      </div>
+    </form>
+  </div>
+  <script src="buttonDisable.js"></script>
+</body>
+</html>
