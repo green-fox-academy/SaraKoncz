@@ -121,7 +121,7 @@ app.post('/arrays', (req, res) => {
   else if (what === 'double') {
     var doubleResult = [];
     for (var i = 0; i < req.body.numbers.length; i++) {
-      doubleResult.push(req.body.numbers[i]*2);
+      doubleResult.push(req.body.numbers[i] * 2);
     }
     res.json({
       "result": doubleResult,
@@ -132,8 +132,8 @@ app.post('/arrays', (req, res) => {
 
 app.post('/sith', (req, res) => {
   const text = req.body.text;
-  const randomText = ['Arrgh', 'Err', 'Err, err', 'Hmm', 'Uhmm'];
-  if (typeof text !== 'string'){
+  const randomText = ['Arrgh. ', 'Arr. ', 'Err, err. ', 'Hmm... ', 'Uhmm. ', 'Padawan. ', 'Disturbance in the Force I feel. '];
+  if (typeof text !== 'string') {
     res.json({
       error: "Feed me some text you have to, padawan young you are. Hmmm."
     })
@@ -142,21 +142,59 @@ app.post('/sith', (req, res) => {
     var arrayOfWords = [];
     var tempText = '';
     var yodaText = '';
-    arrayOfSentences = text.split('. ');
+    arrayOfSentences = text.split('.');
     arrayOfSentences.forEach((sentence, index) => {
       arrayOfWords.push(sentence.toLowerCase().split(' '))
     })
-    arrayOfWords.forEach((e, i, a) =>{
-      if (e.length > 1){
-        e.forEach((element, index, array) => {          
-          if (i%2 ===0){
+    arrayOfWords.forEach((e, i, a) => {
+      if (e.length > 1 && e.length % 2 === 0) {
+        e.forEach((element, index, array) => {
+          if (index % 2 === 1) {
+            tempText = e[index];
+          }
+          if (index % 2 === 0 && index > 0) {
             yodaText += element;
             yodaText += " ";
+            yodaText += tempText;
+            yodaText += " ";
+          }
+          if (index === e.length - 1) {
+            yodaText += tempText;
+            yodaText += ". ";
           }
         })
+        yodaText += randomText[Math.floor(Math.random() * (randomText.length))];
+      }
+      if (e.length > 1 && e.length % 2 === 1) {
+        e.forEach((element, index, array) => {
+          if (index % 2 === 1) {
+            tempText = e[index];
+          }
+          if (index % 2 === 0 && index > 0) {
+            if (index === e.length - 1) { 
+              yodaText += " ";             
+              yodaText += tempText;          
+            }
+            yodaText += " ";
+            yodaText += element;          
+            if (index < e.length - 1) {  
+              yodaText += " ";            
+              yodaText += tempText;
+            }
+            if (index === e.length - 1) {
+              yodaText += ". ";
+            }
+          }
+        })
+        yodaText += randomText[Math.floor(Math.random() * (randomText.length))];
+      }
+      if (e.length === 1) {
+        yodaText += e;
+        yodaText += '. ';
+        yodaText += randomText[Math.floor(Math.random() * (randomText.length))];
       }
     })
-    
+    var yodaText = yodaText.replace('  ', ' ');
     res.json({
       sith_text: yodaText
     })
