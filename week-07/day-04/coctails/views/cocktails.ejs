@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cocktails</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+  <h1>Cocktails</h1>
+  <ul>
+    <li><a href="/">all</a></li>
+    <% alcoholList.forEach( item => { %>
+      <li><a href="/?alcohol=<%=item%>"><%= item%></a></li>
+      <% }); %>
+  </ul>
+  <div class='fancytable'>
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>PRICE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cocktails.forEach (item => { %>
+          <tr>                         
+              <% let isVirgin = '';
+              if (item.isAlcoholic === false) {
+                isVirgin += '(non-alcoholic)';
+              } %>
+            <td>
+              <%= item.name %>
+              <%= isVirgin %>
+            </td>
+            <td rowspan="2">
+              <%= item.price %>
+            </td>
+          </tr>
+          <tr>
+            <% let recipe = '';
+              item.contains.forEach ((item, index, array) => { 
+                recipe += item;
+                if (index < array.length-1) {
+                recipe += ', ';
+                }
+                }); %>
+              <td>
+                <%= recipe %>
+              </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
