@@ -4,6 +4,7 @@ const PORT = 3000;
 
 app.set('view engine', 'ejs');
 app.use('/static', express.static('static'));
+app.use('/assets', express.static('assets'));
 
 const forecasts = [
   {
@@ -65,16 +66,18 @@ const forecasts = [
 
 app.get('/', (req, res) => {
   const city = req.query.city;
+  let cityIndex = 0;
   if (city === undefined) {
     res.render('weather', { data: forecasts });
   } else {
-    // let cityForecast = [];
-    // cocktails.forEach(element => {
-    //   if (element.contains.indexOf(alcohol) > -1) {
-    //     selectedCocktails.push(element);
-    //   }
-    // });
-    res.render('weather', { data: forecasts });
+    let cityData = [];
+    forecasts.forEach((element, index) => {
+      if (element.city === city) {
+        cityIndex = index;
+      }
+    })
+    cityData.push(forecasts[cityIndex]);
+    res.render('city', { data: cityData });
   }
 });
 

@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Weather Forecast</title>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
-
 <body>
-    <img src="/assets/partly_cloudy.png" alt="cloudy" >
   <div class="overview">
     <% data.forEach(e => { %>
-      <table>
-        <tbody>
-
-          <tr class="place">
-            <td>
-              <div id="placeID">
-                <h2><%=e.city%></h2>
-                <%=e.location%>
-              </div>
-            </td>
-
-            <td class="celsius">
-              <strong><%=e.weather[0].temp%></strong>
-            </td>
-
-            <td class="icon">
-              <img src="/assets/<%=e.weather[0].icon%>.png" alt="<%=e.weather[0].icon%>" >
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
+      <a href="/?city=<%=e.city%>">
+        <table>
+          <tbody>
+            <tr class="place">
+              <td>
+                <div id="placeID">
+                  <h2>
+                    <%=e.city%>
+                  </h2>
+                  <%=e.location%>
+                </div>
+              </td>
+              <td class="celsius">
+                <strong>
+                  <%=e.weather[0].temp%>
+                </strong>
+              </td>
+              <td class="icon">
+                <img src="/assets/<%=e.weather[0].icon%>.png" alt="<%=e.weather[0].icon%>">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </a>
       <% }); %>
   </div>
 </body>
-
 </html>

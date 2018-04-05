@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Weather Forecast</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/cityStyles.css">
+</head>
+<body>
+  <h2>
+    <%=data[0].city%>
+  </h2>
+  <div class="overview">
+    <% data[0].weather.forEach((e, i) => {%>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <img src="/assets/<%=data[0].weather[i].icon%>.png" alt="<%=data[0].weather[i].icon%>">
+            </td>
+          </tr>
+          <td class="celsius">
+            <strong>
+              <%=data[0].weather[i].temp%>
+            </strong>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>
+                <%=data[0].weather[i].message%>
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <% }); %>
+  </div>
+  <h3>
+    <a href="/">Back to global weather.</a>
+  </h3>
+</body>
+</html>

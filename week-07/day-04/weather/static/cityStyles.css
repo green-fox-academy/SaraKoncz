@@ -12,12 +12,14 @@ body {
 
 .overview {
   margin-top: 5%;
+  display: inline-flex;
+  margin-left: 5%;
+  margin-right: auto;
 }
 
 table {
-  margin-bottom: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 50px;
+  min-width: 200px;
   border-collapse: collapse;
   font-size: 0, 5em;
   color: rgb(58, 56, 56);
@@ -31,12 +33,6 @@ table {
 img {
   max-width: 90px;
   max-height: auto;
-}
-
-#placeID {
-  text-align: left;
-  min-width: 200px;
-  margin-left: 25px;
 }
 
 .celsius {
@@ -54,4 +50,20 @@ a:link,
 a:visited, 
 a:hover {
   text-decoration: none;
+  color: rgb(58, 56, 56);
+}
+
+a:hover {
+  text-decoration: none;
+  color: lightcoral;
+}
+
+h2 {
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+h3 {
+  margin-top: 50px;
+  margin-left: 5%;
 }
