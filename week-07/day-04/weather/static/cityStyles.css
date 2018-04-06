@@ -64,6 +64,14 @@ h2 {
 }
 
 h3 {
-  margin-top: 50px;
-  margin-left: 5%;
+  margin-top: 30px;
+  margin-left: 5%;  
+}
+
+#globalLink {
+  display: inline-block;
+}
+
+.zita {
+  display: inline-block;
 }
