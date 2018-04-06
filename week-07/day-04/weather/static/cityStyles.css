@@ -3,11 +3,18 @@
   margin: 0;
 }
 
-html, 
-body {
+html {
+
+  background-color: rgba(208, 218, 219);
+  background-image: url("zita.png");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+body  {
   height: 100%;
   font-family: 'Lato', sans-serif;
-  background: rgb(207, 218, 219);
+
 }
 
 .overview {
@@ -25,14 +32,15 @@ table {
   color: rgb(58, 56, 56);
   text-align: center;
   border-style: hidden;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2);
 }
 
-img {
+.icons {
   max-width: 90px;
   max-height: auto;
+  opacity: 0.8;
 }
 
 .celsius {
@@ -60,7 +68,7 @@ a:hover {
 
 h2 {
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 13%;
 }
 
 h3 {
@@ -72,6 +80,4 @@ h3 {
   display: inline-block;
 }
 
-.zita {
-  display: inline-block;
-}
+

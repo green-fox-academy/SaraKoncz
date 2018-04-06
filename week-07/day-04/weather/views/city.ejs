@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/static/cityStyles.css">
 </head>
-<body>
+<body>    
   <h2>
     <%=data[0].city%>
   </h2>
@@ -16,7 +16,7 @@
         <tbody>
           <tr>
             <td>
-              <img src="/assets/<%=data[0].weather[i].icon%>.png" alt="<%=data[0].weather[i].icon%>">
+              <img class="icons" src="/assets/<%=data[0].weather[i].icon%>.png" alt="<%=data[0].weather[i].icon%>">
             </td>
           </tr>
           <td class="celsius">
@@ -37,10 +37,7 @@
       <% }); %>
   </div>
   <h3>
-    <a id="globalLink" href="/">Back to global weather.</a>
-    <div class="zita">
-      <img src="/assets/zita.png" alt="PatakiZita">
-    </div>
+    <a id="globalLink" href="/">Back to global weather.</a>    
   </h3>
 
 </body>
