@@ -15,7 +15,7 @@
     <option value="Drama">Drama</option>
     <option value="Comedy">Comedy</option>
   </select>
-  <select disabled name="movies">
+  <select name="movies">
     <optgroup label="select">
       <option value="" selected>Please select the movie...</option>
     </optgroup>
@@ -38,21 +38,7 @@
       <option class="comedy" value="AsGoodAsItGets">As Good As It Gets</option>
     </optgroup>
   </select>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('select[name="categories"]').onchange = changeEventHandler;
-    }, false);
-
-    function changeEventHandler(event) {
-      // You can use “this” to refer to the selected element.
-      if (!event.target.value) {
-        alert('Please Select One');
-      }
-      else {
-
-      }
-    }
-  </script>
+  <script src="movieSelector.js"></script>
 
 </body>
 
