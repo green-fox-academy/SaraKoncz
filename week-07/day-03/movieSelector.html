@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Movie Selector</title>
+  <link type="text/css" rel="stylesheet" property="stylesheet" media="screen" href="movieSelector.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+</head>
+
+<body>
+  <select name="categories">
+    <option value="" selected>Please select cathegory...</option>
+    <option value="Scifi">Scifi</option>
+    <option value="Drama">Drama</option>
+    <option value="Comedy">Comedy</option>
+  </select>
+  <select disabled name="movies">
+    <optgroup label="select">
+      <option value="" selected>Please select the movie...</option>
+    </optgroup>
+    <optgroup label="scifi">
+      <option class="scifi" value="StarWars1">Star Wars 1</option>
+      <option class="scifi" value="StarWars2">Star Wars 2</option>
+      <option class="scifi" value="StarWars3">Star Wars 3</option>
+      <option class="scifi" value="StarWars3">Star Wars 3</option>
+      <option class="scifi" value="StarTrek">StarTrek</option>
+    </optgroup>
+    <optgroup label="drama">
+      <option class="drama" value="LoveActually">Love Actually</option>
+      <option class="drama" value="500DaysOfSummer">500 Days Of Summer</option>
+      <option class="drama" value="Love Unexpected">Love Unexpected</option>
+    </optgroup>
+    <optgroup label="comedy">
+      <option class="comedy" value="DefinitelyMaybe">Definitely Maybe</option>
+      <option class="comedy" value="HeIsJustNotIntoYou">He is just not into you</option>
+      <option class="comedy" value="UglyTruth">Ugly Truth</option>
+      <option class="comedy" value="AsGoodAsItGets">As Good As It Gets</option>
+    </optgroup>
+  </select>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('select[name="categories"]').onchange = changeEventHandler;
+    }, false);
+
+    function changeEventHandler(event) {
+      // You can use “this” to refer to the selected element.
+      if (!event.target.value) {
+        alert('Please Select One');
+      }
+      else {
+
+      }
+    }
+  </script>
+
+</body>
+
+</html>
