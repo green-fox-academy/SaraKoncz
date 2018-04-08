@@ -9,27 +9,31 @@
 </head>
 
 <body>
-  <select name="categories">
-    <option value="empty" selected>Please select cathegory...</option>
-    <option value="scifi">Scifi</option>
-    <option value="drama">Drama</option>
-    <option value="comedy">Comedy</option>
-  </select>
-  <select name="movies">
-      <option value="empty" selected>Please select the movie...</option>
-      <option class="scifi" value="StarWars1">Star Wars 1</option>
-      <option class="scifi" value="StarWars2">Star Wars 2</option>
-      <option class="scifi" value="StarWars3">Star Wars 3</option>
-      <option class="scifi" value="StarWars3">Star Wars 3</option>
-      <option class="scifi" value="StarTrek">StarTrek</option>
-      <option class="drama" value="LoveActually">Love Actually</option>
-      <option class="drama" value="500DaysOfSummer">500 Days Of Summer</option>
+
+  <div class="selector">
+    <h1>Movie Selector</h1>
+    <select name="categories">
+      <option value="empty" selected>Select a genre...</option>
+      <option value="scifi">Scifi</option>
+      <option value="drama">Drama</option>
+      <option value="comedy">Comedy</option>
+    </select>
+    <select name="movies">
+      <option value="empty" selected>Select a movie...</option>
+      <option class="scifi" value="Star Wars 1">Star Wars 1</option>
+      <option class="scifi" value="Star Wars 2">Star Wars 2</option>
+      <option class="scifi" value="Star Wars 3">Star Wars 3</option>
+      <option class="scifi" value="Star Trek">StarTrek</option>
+      <option class="drama" value="Love Actually">Love Actually</option>
+      <option class="drama" value="500 Days Of Summer">500 Days Of Summer</option>
       <option class="drama" value="Love Unexpected">Love Unexpected</option>
-      <option class="comedy" value="DefinitelyMaybe">Definitely Maybe</option>
-      <option class="comedy" value="HeIsJustNotIntoYou">He is just not into you</option>
-      <option class="comedy" value="UglyTruth">Ugly Truth</option>
-      <option class="comedy" value="AsGoodAsItGets">As Good As It Gets</option>
-  </select>
+      <option class="comedy" value="Definitely Maybe">Definitely Maybe</option>
+      <option class="comedy" value="He Is Just Not Into You">He is just not into you</option>
+      <option class="comedy" value="Ugly Truth">Ugly Truth</option>
+      <option class="comedy" value="As Good As It Gets">As Good As It Gets</option>
+    </select>
+    <h3>The choosen movie is:<br><span id="chosenMovie"></span></h3>
+  </div>
   <script src="movieSelector.js"></script>
 
 </body>

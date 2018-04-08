@@ -1,6 +1,11 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', catchChoice);
+document.addEventListener('DOMContentLoaded', catchMovie);
+
+document.querySelectorAll('select[name=movies]').forEach(e => {
+  e.disabled = true;
+});
 
 function catchChoice() {
   document.querySelector('select[name="categories"]').onchange = checkChoice;
@@ -53,4 +58,13 @@ function checkChoice(e) {
 
     }
   }
+}
+
+function catchMovie() {
+  document.querySelector('select[name="movies"]').onchange = saveName;
+};
+
+function saveName(e) {
+  let chosenMovie = e.target.value;
+  document.querySelector("#chosenMovie").innerHTML = chosenMovie;
 }

@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  background-color: white;
+}
+
+body {
+  margin: 50px;
+  margin: 50px, 0;
+  font-family: 'Raleway', sans-serif;
+  color: #414141;
+  display:inline-flex;
+  text-align: center;
+}
+
+.selector {
+  background-color: lightblue;
+  max-width: 400px;
+  padding: 20px;
+}
+
+select {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  color: #414141;
+}
+
+#chosenMovie {
+  color: lightcoral;
+}
+
+h1, select, h4 {
+  margin-bottom: 10px;
+}
