@@ -47,9 +47,27 @@ test('Pair in any hand', (t) => {
 });
 
 test('Drill in any hand', (t) => {
-  const expectedResult = 'Black wins! - (Drill: K)';
+  const expectedResult = 'Black wins! - (Drill: 2)';
   const blackHand = ['2H', '2D', '2S', 'TC', 'KD'];
   const whiteHand = ['2C', '3H', '4S', '8C', '8S'];
+
+  t.equal(pokerCalculator(blackHand, whiteHand), expectedResult);
+  t.end();
+});
+
+test('Flush in any hand', (t) => {
+  const expectedResult = 'Black wins! - (Flush: H)';
+  const blackHand = ['2H', '3H', '5H', 'KH', 'AH'];
+  const whiteHand = ['2C', '4H', '4S', '8C', '8S'];
+
+  t.equal(pokerCalculator(blackHand, whiteHand), expectedResult);
+  t.end();
+});
+
+test('Flush in any both hand', (t) => {
+  const expectedResult = 'Black wins! - (Flush: H)';
+  const blackHand = ['2H', '3H', '5H', 'JH', 'AH'];
+  const whiteHand = ['2C', '4C', '4C', '8C', 'DC'];
 
   t.equal(pokerCalculator(blackHand, whiteHand), expectedResult);
   t.end();
@@ -91,7 +109,7 @@ const [
   [
     ['2H', '2D', '2S', 'TC', 'KD'],
     ['2C', '3H', '4S', '8C', '8S'],
-    'Black wins! - (Drill: K)'
+    'Black wins! - (Drill: 2)' //originally it was Drill:K, so I corrected it to 2
   ],
   7
   [

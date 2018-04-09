@@ -5,16 +5,12 @@ module.exports = (blackHand, whiteHand) => {
   let winner = '';
   let winnerCardValue = '';
   let winStrategy = '';
-  let highestBIndex = row.indexOf(blackHand[4][0]);
-  let highestWIndex = row.indexOf(whiteHand[4][0]);
-  let whitePairIndex = -1;
-  let blackPairIndex = -1;
-  let whiteDrillIndex = -1;
-  let blackDrillIndex = -1;
-  let winnerBlackCardIndex = -1;
-  let winnerWhiteCardIndex = -1;
+
 
   //High card:
+  let highestBIndex = row.indexOf(blackHand[4][0]);
+  let highestWIndex = row.indexOf(whiteHand[4][0]);
+
   if (highestBIndex > highestWIndex) {
     winner = 'Black';
     winnerCardValue = rowWithNames[highestBIndex];
@@ -28,6 +24,11 @@ module.exports = (blackHand, whiteHand) => {
   }
 
   //Pair:
+  let whitePairIndex = -1;
+  let blackPairIndex = -1;
+  let winnerBlackCardIndex = -1;
+  let winnerWhiteCardIndex = -1;
+
   for (let i = 0; i < 4; i++) {
     if (blackHand[i][0] === blackHand[i + 1][0]) {
       blackPairIndex = i;
@@ -52,29 +53,66 @@ module.exports = (blackHand, whiteHand) => {
   }
 
   //Drill:
+  let whiteDrillIndex = -1;
+  let blackDrillIndex = -1;
+  let winnerBlackDrillIndex = -1;
+  let winnerWhiteDrillIndex = -1;
+
   for (let i = 0; i < 3; i++) {
-    if (blackHand[i][0] === blackHand[i + 1][0] === blackHand[i + 2][0]) {
-      blackPairIndex = i;
-      winnerBlackCardIndex = row.indexOf(blackHand[blackPairIndex][0]);
+    if (blackHand[i][0] === blackHand[i + 1][0] && blackHand[i][0] === blackHand[i + 2][0]) {
+      blackDrillIndex = i;
+      winnerBlackDrillIndex = row.indexOf(blackHand[blackDrillIndex][0]);
     }
-    if (whiteHand[i][0] === whiteHand[i + 1][0] === whiteHand[i + 2][0]) {
-      whitePairIndex = i;
-      winnerWhiteCardIndex = row.indexOf(whiteHand[whitePairIndex][0]);
+    if (whiteHand[i][0] === whiteHand[i + 1][0] && whiteHand[i][0] === whiteHand[i + 2][0]) {
+      whiteDrillIndex = i;
+      winnerWhiteDrillIndex = row.indexOf(whiteHand[whiteDrillIndex][0]);
     }
   }
 
-  if (blackDrillIndex !== -1 && winnerBlackCardIndex > winnerWhiteCardIndex) {
+  if (winnerBlackDrillIndex !== -1 && winnerBlackDrillIndex > winnerWhiteDrillIndex) {
     winner = 'Black';
     winStrategy = 'Drill';
-    winnerCardValue = rowWithNames[winnerBlackCardIndex];
+    winnerCardValue = rowWithNames[winnerBlackDrillIndex];
   }
 
-  if (whiteDrillIndex !== -1 && winnerBlackCardIndex < winnerWhiteCardIndex) {
+  if (winnerWhiteDrillIndex !== -1 && winnerBlackDrillIndex < winnerWhiteDrillIndex) {
     winner = 'White';
     winStrategy = 'Drill';
-    winnerCardValue = rowWithNames[winnerWhiteCardIndex];
+    winnerCardValue = rowWithNames[winnerWhiteDrillIndex];
   }
-  
+
+  //Flush:
+  let winnerBlackFlushValue = -1;
+  let winnerWhiteFlushValue = -1;
+  let winnerBlackFlushIndex = -1;
+  let winnerWhiteFlushIndex = -1;
+  if (blackHand[0][1] === blackHand[1][1] &&
+    blackHand[0][1] === blackHand[2][1] &&
+    blackHand[0][1] === blackHand[3][1] &&
+    blackHand[0][1] === blackHand[4][1]) {
+    winnerBlackFlushValue = blackHand[4][0];
+    winnerBlackFlushIndex = row.indexOf(winnerBlackFlushValue);
+  }
+
+  if (whiteHand[0][1] === whiteHand[1][1] &&
+    whiteHand[0][1] === whiteHand[2][1] &&
+    whiteHand[0][1] === whiteHand[3][1] &&
+    whiteHand[0][1] === whiteHand[4][1]) {
+    winnerWhiteFlushValue = whiteHand[4][0];
+    winnerWhiteFlushIndex = row.indexOf(winnerWhiteFlushValue);
+  }
+
+  if (winnerBlackFlushIndex !== -1 && winnerBlackFlushIndex > winnerWhiteFlushIndex) {
+    winner = 'Black';
+    winStrategy = 'Flush';
+    winnerCardValue = blackHand[0][1];
+  }
+
+  if (winnerWhiteFlushIndex !== -1 && winnerBlackFlushIndex < winnerWhiteFlushIndex) {
+    winner = 'White';
+    winStrategy = 'Flush';
+    winnerCardValue = whiteHand[0][1];
+  }
 
   return `${winner} wins! - (${winStrategy}: ${winnerCardValue})`;
 }
