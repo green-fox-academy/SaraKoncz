@@ -13,3 +13,14 @@ const threeTimes = multiplier(3);
 
 console.log(threeTimes(5)); // should log 15
 console.log(threeTimes(100)); // should log 300
+
+//solution with bind and this:
+function multiply(a, b) {
+  return a * b;
+}
+
+const multyplyByTwo = multiply.bind(this, 2);
+console.log(multyplyByTwo(4));
+
+const multyplyByThree = multiply.bind(this, 3);
+console.log(multyplyByThree(4));
