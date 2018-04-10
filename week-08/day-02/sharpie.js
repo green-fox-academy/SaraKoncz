@@ -10,13 +10,13 @@
 // Make sure your loop works with any inkAmount, so your code figures out when it's out of ink.
 
 let sharpie = {
-  color : '',
-  width : 0,
-  inkAmount : 0,
+  color: '',
+  width: 0,
+  inkAmount: 0,
   use: function () {
     this.inkAmount -= this.width;
   },
-  create: function(color, width){
+  create: function (color, width) {
     this.color = color;
     this.width = width;
     this.inkAmount = 100;
@@ -25,25 +25,25 @@ let sharpie = {
 }
 
 function sharpieConstructor(color, width) {
-  let newSharpie = sharpie.create(color, width); 
-  return newSharpie;  
+  let newSharpie = sharpie.create(color, width);
+  return newSharpie;
 }
 
 let mySharpie = sharpieConstructor('pink', 5);
-console.log(mySharpie.color);  
-console.log(mySharpie.width); 
+console.log(mySharpie.color);
+console.log(mySharpie.width);
 console.log(mySharpie.inkAmount);
 
 mySharpie.use();
-console.log(mySharpie.color);  
-console.log(mySharpie.width); 
-console.log(mySharpie.inkAmount); 
+console.log(mySharpie.color);
+console.log(mySharpie.width);
+console.log(mySharpie.inkAmount);
 
-do{
+do {
   mySharpie.use();
 } while (mySharpie.inkAmount > 0);
 
 mySharpie.use();
-console.log(mySharpie.color);  
-console.log(mySharpie.width); 
+console.log(mySharpie.color);
+console.log(mySharpie.width);
 console.log(mySharpie.inkAmount); 
