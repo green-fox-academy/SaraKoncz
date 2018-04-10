@@ -1,17 +1,3 @@
-// Create the multiplier function that you can use like this:
-// function alcatraz() {
-//   let prisoners = ['Clarence Anglin', 'John Anglin', 'Frank Morris'];
-//   return function() {
-//       return prisoners;
-//   }
-// }
-
-// let fugitives = alcatraz();
-
-// console.log(prisoners); // ReferenceError: prisoners is not defined
-// console.log(alcatraz.prisoners); // undefined
-// console.log(fugitives()); // Clarence Anglin, John Anglin, Frank Morris
-
 function multiplier(multiplyBy) {
   return function duplicator(number) {
     return number * multiplyBy;
