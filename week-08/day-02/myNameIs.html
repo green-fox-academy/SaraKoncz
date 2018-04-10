@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Button event</title>
+</head>
+<body>
+    <h1>Hi, my name is <span id="name"></span></h1>
+
+    <button id="signUpButton" type="button">Who are you?</button>
+
+    <script>
+        const Eminem = {
+            name: 'Slim shady',
+            speak: function () {
+              document.querySelector("#name").innerHTML = this.name;
+            }
+        }        
+        // 2) Add a click event on the button and assign Eminem.speak to it
+        // Don't use a wrapper function
+        let signUpButton = document.querySelector('#signUpButton');
+        signUpButton.addEventListener('click', () => {
+          Eminem.speak()
+        });        
+    </script>
+</body>
+</html>
