@@ -19,8 +19,42 @@
       <main class="main">
         <h1>Your last 15 items</h1>
         <div id="history">
+           <% history.forEach(item => { %>
+          <div class="history-item">
+            <div class="item-title"><%= item.title %></div>
+            <div class="item-price"><%= item.price %></div>
+            <div class="item-date"><%= moment(item.date).format('YYYY-MM-DD') %></div>
+          </div>
+          <% }) %>
         </div>
+        <div class="input-form">
+            <form>
+              <label for="title">
+                <span>Title:</span>
+                <input id="title" name="title" class="form-input">
+              </label>
+              <label for="price">
+                <span>Price:</span>
+                <input id="price" name="price" class="form-input">
+              </label>
+  
+              <label for="type-selector">
+                <span>Type:</span>
+                <select id="type-selector" name="type">
+                  <option value="0" disabled selected>Choose one</option>
+                </select>
+              </label>
+  
+              <label for="date">
+                <span>Date (YYYY-MM-DD):</span>
+                <input id="date" name="date" class="form-input">
+              </label>
+  
+              <button type="submit" id="form-submit-button">Submit</button>
+            </form>
+          </div>
       </main>
     </div>
+    <script src="/static/script.js"></script>
   </body>
 </html>
