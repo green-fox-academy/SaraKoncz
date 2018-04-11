@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <title>Sari demo - POKER</title>
+</head>
+<body>
+<% cardData.forEach(function(item, index) { %>
+<section class="container">
+  <div class="card" onclick="flip()">
+    <div class="front1"></div>
+    <div class="back">
+      <p class="num"><%= item.blackhand[0].num %></p>
+      <img class="img" src="/assets/<%= item.blackhand[0].icon%>.png">
+    </div>
+  </div> 
+</section>
+  <% }); %> 
+  <% cardData.forEach(function(item, index) { %>
+<section class="container">
+  <div class="card" onclick="flip()">
+    <div class="front1"></div>
+    <div class="back">
+      <p class="num"><%= item.blackhand[1].num %></p>
+      <img class="img" src="/assets/<%= item.blackhand[1].icon%>.png">
+    </div>
+  </div> 
+</section>
+  <% }); %> 
+<script>function flip() {
+    $('.card').toggleClass('flipped');
+}</script>
+</body>
+</html>
+ 

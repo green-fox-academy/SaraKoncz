@@ -1,0 +1,91 @@
+* {
+  margin: auto;
+  padding: 0px;
+}
+
+html {
+    margin: auto;
+  width: 100%;  
+  height: 100%;
+}
+
+body {
+  padding-top: 12vw;
+  font-family: 'Avenir', sans-serif;
+  background: #C9CCD3;
+  background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+  background-blend-mode: lighten;
+  background-repeat: no-repeat;
+}
+
+.container {
+  position: relative;
+    left: 10%;
+  perspective: 800px;
+  display: inline-flex;
+  flex-direction: row;
+  animation: 2s move;
+}
+
+.card {
+  padding: 1vw;
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+
+}
+
+
+.card div {
+  display: inline-flex;
+  flex-direction: row;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 160px;
+  color: white;
+  font-weight: bold;
+  font-size: 100px;
+  position: fixed;
+  backface-visibility: hidden;
+}
+
+.img {
+  width: 50%;
+  padding: 0px 10px 0 10px;
+}
+
+.card .front1 {
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+}
+
+.card .front2 {
+background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+}
+
+.card .back {
+  background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+  background-blend-mode: screen;
+  transform: rotateY( 180deg );
+}
+
+.card.flipped {
+  transform: rotateY( 180deg );
+}
+
+.num {
+  font-size: 0.5em;
+  padding: 0px 10px 0 10px;
+}
+
+
+@keyframes move {
+  from {
+      left: 105%;
+  }
+  to {
+      left: 10%;
+  }
+}

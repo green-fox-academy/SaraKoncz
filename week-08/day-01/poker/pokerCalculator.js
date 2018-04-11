@@ -113,6 +113,6 @@ module.exports = (blackHand, whiteHand) => {
     winStrategy = 'Flush';
     winnerCardValue = whiteHand[0][1];
   }
-
-  return `${winner} wins! - (${winStrategy}: ${winnerCardValue})`;
+  let result = `${winner} wins! - (${winStrategy}: ${winnerCardValue})`;
+  return result;
 }
