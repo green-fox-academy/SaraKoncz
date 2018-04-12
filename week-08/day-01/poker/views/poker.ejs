@@ -27,7 +27,7 @@
       <div class="card" onclick="flip()">
         <div class="front1"></div>
         <div class="back">
-          <p class="num" id="<%=index%>">
+          <p class="num" id="<%=index%>black">
             <%= item[0] %>
           </p>
           <img class="img" src="/assets/<%= item[1]%>.png">
@@ -41,7 +41,7 @@
         <div class="card" onclick="flip()">
           <div class="front2"></div>
           <div class="back">
-            <p class="num">
+            <p class="num" id="<%=index%>white">
               <%= item[0]%>
             </p>
             <img class="img" src="/assets/<%= item[1]%>.png">

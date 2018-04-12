@@ -132,8 +132,15 @@ submitButton.addEventListener('click', (e) => {
   let res = document.querySelector('.result');
   res.appendChild(newH2);
 
-  let loser = document.querySelector('.winner');
-  loser.innerHTML = 'loser';
-  let num = document.querySelector('#1cica');
-  num.innerHTML = '2';
+  for (let i = 0; i <= 4; i++){
+  let id = i.toString().concat('black');
+  let num = document.getElementById(id);
+  num.innerHTML = blackHand[i][0];
+  }
+
+  for (let i = 0; i <= 4; i++){
+    let id = i.toString().concat('white');
+    let num = document.getElementById(id);
+    num.innerHTML = whiteHand[i][0];
+    }
 });
