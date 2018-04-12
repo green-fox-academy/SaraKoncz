@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <title>Sari demo - POKER</title>
 </head>
+
 <body>
-<% cardData.forEach(function(item, index) { %>
-<section class="container">
-  <div class="card" onclick="flip()">
-    <div class="front1"></div>
-    <div class="back">
-      <p class="num"><%= item.blackhand[0].num %></p>
-      <img class="img" src="/assets/<%= item.blackhand[0].icon%>.png">
-    </div>
-  </div> 
-</section>
-  <% }); %> 
-  <% cardData.forEach(function(item, index) { %>
-<section class="container">
-  <div class="card" onclick="flip()">
-    <div class="front1"></div>
-    <div class="back">
-      <p class="num"><%= item.blackhand[1].num %></p>
-      <img class="img" src="/assets/<%= item.blackhand[1].icon%>.png">
-    </div>
-  </div> 
-</section>
-  <% }); %> 
-<script>function flip() {
-    $('.card').toggleClass('flipped');
-}</script>
+    <div class="input-form">
+        <form>
+          <label for="title">
+            <span>Player 1:</span>
+            <input id="title" name="hand1" class="form-input">
+          </label>
+          <label for="url">
+            <span>Player 2:</span>
+            <input id="url" name="hand2" class="form-input">
+          </label>
+          <button type="submit" id="post-submit-button">Submit</button>
+        </form>
+        </div>
+  <section class="container">
+    <% blackHand.forEach(function(item, index) { %>
+      <div class="card" onclick="flip()">
+        <div class="front1"></div>
+        <div class="back">
+          <p class="num" id="<%=index%>">
+            <%= item[0] %>
+          </p>
+          <img class="img" src="/assets/<%= item[1]%>.png">
+        </div>
+      </div>
+      <% }); %>
+    </section>
+    
+    <section class="container">
+      <% whiteHand.forEach(function(item, index) { %>
+        <div class="card" onclick="flip()">
+          <div class="front2"></div>
+          <div class="back">
+            <p class="num">
+              <%= item[0]%>
+            </p>
+            <img class="img" src="/assets/<%= item[1]%>.png">
+          </div>
+        </div>
+        <% }); %>
+      </section>
+      <script>function flip() {
+        $('.card').toggleClass('flipped');
+      }
+      </script>
+      <div class=result>
+      <h1 class="winner">winner:</h1>
+      </div>
+      <script src="/static/pokerscript.js">
+      </script>
 </body>
+
 </html>
- 

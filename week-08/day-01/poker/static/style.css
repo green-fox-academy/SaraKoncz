@@ -19,26 +19,31 @@ body {
 }
 
 .container {
-  position: relative;
-    left: 10%;
-  perspective: 800px;
-  display: inline-flex;
+  left: 10%;
+  display: flex; 
   flex-direction: row;
+  flex-flow: wrap;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  perspective: 800px;
   animation: 2s move;
+  margin-bottom: 100px;
+  width: 600px;
 }
 
 .card {
-  padding: 1vw;
-  width: 200px;
-  height: 300px;
+  /* padding: 1vw; */
+  width: 100px;
+  height: 200px;
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-
 }
 
 
 .card div {
+  position: relative;
   display: inline-flex;
   flex-direction: row;
   border-radius: 10px;
@@ -48,7 +53,6 @@ body {
   color: white;
   font-weight: bold;
   font-size: 100px;
-  position: fixed;
   backface-visibility: hidden;
 }
 
@@ -72,6 +76,7 @@ background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%
 }
 
 .card.flipped {
+  position: relative;
   transform: rotateY( 180deg );
 }
 

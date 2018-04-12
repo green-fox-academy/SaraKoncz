@@ -5,43 +5,16 @@ const PORT = 3030;
 app.set('view engine', 'ejs');
 app.use('/static', express.static('static'));
 app.use('/assets', express.static('assets'));
+app.use(express.json());
 
-const cards = [
-  {
-    blackhand: [
-      {num: 8, icon: 'c'},
-      {num: 3, icon: 'h'},
-    ],
-  },  
-  {
-    blackhand: [ 
-      {num: 4, icon: 'c'},
-      {num: 5, icon: 's'},
-    ],
-  },  
-    {
-    blackhand: [
-      {num: 2, icon: 'h'},
-      {num: 5, icon: 's'},
-    ],
-  }, 
-    {
-    blackhand: [
-      {num: 4, icon: 'd'},
-      {num: 5, icon: 's'},
-    ],
-  }, 
-  {
-    blackhand: [
-      {num: 8, icon: 'c'},
-      {num: 5, icon: 's'},
-    ],
-  }, 
-];
+const expectedResult = 'White wins! - (High card: Ace)';
+const blackHand = ['3H', '3D', '5S', '9C', 'KD'];
+const whiteHand = ['3C', '3H', '4S', '8C', 'AH'];
 
 app.get('/', (req, res) => {
-  res.render ('poker', {
-    cardData: cards,
+  res.render('poker', {
+    blackHand,
+    whiteHand
   });
 });
 
