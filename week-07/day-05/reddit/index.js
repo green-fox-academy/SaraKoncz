@@ -30,7 +30,6 @@ app.get('/posts', function (req, res) {
   });
 });
 
-console.log('kiscica '+ Date.now());
 
 app.post('/posts', function (req, res) {
   const title = req.body.title;
@@ -40,8 +39,7 @@ app.post('/posts', function (req, res) {
       error: 'Please provide title and url data of the new post!'
     });
   } else {
-    const currentTime = Date.now();
-    const newPost = { title, url, timestamp: 123456789, score: 0 };
+    const newPost = { title, url, score: 0 };
     conn.query('INSERT INTO posts SET ?', newPost, (err, rows) => {
       if (err) throw err;
       res.send({ posts: rows });
@@ -49,6 +47,31 @@ app.post('/posts', function (req, res) {
   }
 });
 
+app.put('/posts/:id/upvote', function (req, res) {
+  let upvote = `UPDATE posts SET score = score + 1 WHERE id = ${req.params.id};`;
+  conn.query(upvote, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log("1 record upvoted");
+      res.json(result);
+    }
+  });
+});
+
+app.put('/posts/:id/downvote', function (req, res) {
+  let upvote = `UPDATE posts SET score = score - 1 WHERE id = ${req.params.id};`;
+  conn.query(upvote, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log("1 record downvoted");
+      res.json(result);
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is up on port ${PORT} `);
