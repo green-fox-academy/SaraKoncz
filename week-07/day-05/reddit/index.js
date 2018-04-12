@@ -4,6 +4,8 @@ const path = require('path');
 const PORT = 8080;
 let mysql = require('mysql');
 
+app.set('view engine', 'ejs');
+app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 
 app.get('/hello', (req, res) => {
@@ -19,14 +21,14 @@ let conn = mysql.createConnection({
   database: 'reddit',
 });
 
-app.get('/posts', function (req, res) {
+app.get('/', function (req, res) {
   conn.query('SELECT * FROM posts;', function (err, rows) {
     if (err) {
       console.log(err.toString());
       res.satus(500).send('Database error');
       return;
     }
-    res.send({ posts: rows });
+    res.render('index', { rows });
   });
 });
 
@@ -61,8 +63,8 @@ app.put('/posts/:id/upvote', function (req, res) {
 });
 
 app.put('/posts/:id/downvote', function (req, res) {
-  let upvote = `UPDATE posts SET score = score - 1 WHERE id = ${req.params.id};`;
-  conn.query(upvote, (err, result) => {
+  let downvote = `UPDATE posts SET score = score - 1 WHERE id = ${req.params.id};`;
+  conn.query(downvote, (err, result) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);

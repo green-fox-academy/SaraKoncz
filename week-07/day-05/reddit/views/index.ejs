@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+    Reddit
+  </title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+  <h1>Reddit</h1>
+<% rows.forEach((e, i) => {  %>
+  <div class="title"><a href="<%=e.url %>"><%=e.title %></a></div>
+  <% let date = e.timestamp.toString().substring(0, 15); %>  
+  <div class="score">Date of posting: <%=date %></div>
+  <div class="score">Number of likes: <%=e.score %></div>
+  <% let id = i+1 ;%>
+  <div class="upvote-post"><button class="likebutton" data-id="<%=e.id%>" data-action="upvote">Upvote</button></div>
+  <div class="downvote-post"><button class="kislikebutton" data-id="<%=e.id%>" data-action="downvote">Downvote</button></div>
+  <% }); %>
+  <div class="input-form">
+      <form>
+        <label for="title">
+          <span>Title:</span>
+          <input id="title" name="title" class="form-input">
+        </label>
+        <label for="url">
+          <span>URL:</span>
+          <input id="url" name="url" class="form-input">
+        </label>
+        <button type="submit" id="post-submit-button">Submit</button>
+      </form>
+      </div>
+
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
