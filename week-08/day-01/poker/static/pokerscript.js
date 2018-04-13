@@ -133,6 +133,18 @@ submitButton.addEventListener('click', (e) => {
   res.appendChild(newH2);
 
   for (let i = 0; i <= 4; i++){
+    let id = i.toString().concat('blackpic');
+    let num = document.getElementById(id);
+    num.src = `/assets/${blackHand[i][1]}.png`;
+    }
+
+    for (let i = 0; i <= 4; i++){
+      let id = i.toString().concat('whitepic');
+      let num = document.getElementById(id);
+      num.src = `/assets/${whiteHand[i][1]}.png`;
+      }
+
+  for (let i = 0; i <= 4; i++){
   let id = i.toString().concat('black');
   let num = document.getElementById(id);
   num.innerHTML = blackHand[i][0];
