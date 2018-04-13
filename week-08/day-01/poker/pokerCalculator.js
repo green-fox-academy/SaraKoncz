@@ -1,29 +1,31 @@
 'use strict';
-module.exports = (blackHand, whiteHand) => {
-  let row = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
-  let rowWithNames = ['2', '3', '4', '5', '6', '7', '8', '9', 'Ten', 'Jumbo', 'Queen', 'King', 'Ace'];
-  let winner = '';
-  let winnerCardValue = '';
-  let winStrategy = '';
 
+//Sort:
+function sortArrays(blackHand, whiteHand, row) {
+  blackHand.sort((a, b) => row.indexOf(a[0]) - row.indexOf(b[0]));
+  whiteHand.sort((a, b) => row.indexOf(a[0]) - row.indexOf(b[0]));
+};
 
-  //High card:
+//High card:
+function checkHighCards(blackHand, whiteHand, row, rowWithNames, score) {
   let highestBIndex = row.indexOf(blackHand[4][0]);
   let highestWIndex = row.indexOf(whiteHand[4][0]);
 
   if (highestBIndex > highestWIndex) {
-    winner = 'Black';
-    winnerCardValue = rowWithNames[highestBIndex];
-    winStrategy = 'High card';
+    score.winner = 'Black';
+    score.winnerCardValue = rowWithNames[highestBIndex];
+    score.winStrategy = 'High card';
   }
 
   if (highestWIndex > highestBIndex) {
-    winner = 'White';
-    winnerCardValue = rowWithNames[highestWIndex];
-    winStrategy = 'High card';
+    score.winner = 'White';
+    score.winnerCardValue = rowWithNames[highestWIndex];
+    score.winStrategy = 'High card';
   }
+}
 
-  //Pair:
+//Pair:
+function checkPairs(blackHand, whiteHand, row, rowWithNames, score) {
   let whitePairIndex = -1;
   let blackPairIndex = -1;
   let winnerBlackCardIndex = -1;
@@ -41,18 +43,20 @@ module.exports = (blackHand, whiteHand) => {
   }
 
   if (blackPairIndex !== -1 && winnerBlackCardIndex > winnerWhiteCardIndex) {
-    winner = 'Black';
-    winStrategy = 'Pair';
-    winnerCardValue = rowWithNames[winnerBlackCardIndex];
+    score.winner = 'Black';
+    score.winStrategy = 'Pair';
+    score.winnerCardValue = rowWithNames[winnerBlackCardIndex];
   }
 
   if (whitePairIndex !== -1 && winnerBlackCardIndex < winnerWhiteCardIndex) {
-    winner = 'White';
-    winStrategy = 'Pair';
-    winnerCardValue = rowWithNames[winnerWhiteCardIndex];
+    score.winner = 'White';
+    score.winStrategy = 'Pair';
+    score.winnerCardValue = rowWithNames[winnerWhiteCardIndex];
   }
+}
 
-  //Drill:
+//Drill:
+function checkDrill(blackHand, whiteHand, row, rowWithNames, score) {
   let whiteDrillIndex = -1;
   let blackDrillIndex = -1;
   let winnerBlackDrillIndex = -1;
@@ -70,18 +74,20 @@ module.exports = (blackHand, whiteHand) => {
   }
 
   if (winnerBlackDrillIndex !== -1 && winnerBlackDrillIndex > winnerWhiteDrillIndex) {
-    winner = 'Black';
-    winStrategy = 'Drill';
-    winnerCardValue = rowWithNames[winnerBlackDrillIndex];
+    score.winner = 'Black';
+    score.winStrategy = 'Drill';
+    score.winnerCardValue = rowWithNames[winnerBlackDrillIndex];
   }
 
   if (winnerWhiteDrillIndex !== -1 && winnerBlackDrillIndex < winnerWhiteDrillIndex) {
-    winner = 'White';
-    winStrategy = 'Drill';
-    winnerCardValue = rowWithNames[winnerWhiteDrillIndex];
+    score.winner = 'White';
+    score.winStrategy = 'Drill';
+    score.winnerCardValue = rowWithNames[winnerWhiteDrillIndex];
   }
+}
 
-  //Flush:
+//Flush:
+function checkFlush(blackHand, whiteHand, row, rowWithNames, score) {
   let winnerBlackFlushValue = -1;
   let winnerWhiteFlushValue = -1;
   let winnerBlackFlushIndex = -1;
@@ -103,16 +109,44 @@ module.exports = (blackHand, whiteHand) => {
   }
 
   if (winnerBlackFlushIndex !== -1 && winnerBlackFlushIndex > winnerWhiteFlushIndex) {
-    winner = 'Black';
-    winStrategy = 'Flush';
-    winnerCardValue = blackHand[0][1];
+    score.winner = 'Black';
+    score.winStrategy = 'Flush';
+    score.winnerCardValue = blackHand[0][1];
   }
 
   if (winnerWhiteFlushIndex !== -1 && winnerBlackFlushIndex < winnerWhiteFlushIndex) {
-    winner = 'White';
-    winStrategy = 'Flush';
-    winnerCardValue = whiteHand[0][1];
+    score.winner = 'White';
+    score.winStrategy = 'Flush';
+    score.winnerCardValue = whiteHand[0][1];
   }
-  let result = `${winner} wins! - (${winStrategy}: ${winnerCardValue})`;
+}
+
+
+
+module.exports = (blackHand, whiteHand) => {
+  let row = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+  let rowWithNames = ['2', '3', '4', '5', '6', '7', '8', '9', 'Ten', 'Jumbo', 'Queen', 'King', 'Ace'];
+  
+  let score = {
+    winner: '',
+    winnerCardValue: '',
+    winStrategy: ''
+  }
+  //Sort:
+  sortArrays(blackHand, whiteHand, row);
+
+  //High card:
+  checkHighCards(blackHand, whiteHand, row, rowWithNames, score);
+
+  //Pair:
+  checkPairs(blackHand, whiteHand, row, rowWithNames, score);
+
+  //Drill:
+  checkDrill(blackHand, whiteHand, row, rowWithNames, score);
+
+  //Flush:
+  checkFlush(blackHand, whiteHand, row, rowWithNames, score);
+
+  let result = `${score.winner} wins! - (${score.winStrategy}: ${score.winnerCardValue})`;
   return result;
 }

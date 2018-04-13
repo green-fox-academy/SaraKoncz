@@ -12,8 +12,8 @@ test('High card in white hand: Ace', (t) => {
 
 test('High card in black hand: Ace', (t) => {
   const expectedResult = 'Black wins! - (High card: Ace)';
-  const blackHand = ['2H', '3D', '5S', '9C', 'AD'];
-  const whiteHand = ['2C', '3H', '4S', '8C', 'KD'];
+  const blackHand = ['3D', '2H', '9C', '5S', 'AD'];
+  const whiteHand = ['3H', '2D', '4S', 'KD', '8S'];
 
   t.equal(pokerCalculator(blackHand, whiteHand), expectedResult);
   t.end();
@@ -57,8 +57,8 @@ test('Drill in any hand', (t) => {
 
 test('Flush in any hand', (t) => {
   const expectedResult = 'Black wins! - (Flush: H)';
-  const blackHand = ['2H', '3H', '5H', 'KH', 'AH'];
-  const whiteHand = ['2C', '4H', '4S', '8C', '8S'];
+  const blackHand = ['AH', '3H', '5H', 'KH', '2H'];
+  const whiteHand = ['8C', '4H', '4S', '8C', '2S'];
 
   t.equal(pokerCalculator(blackHand, whiteHand), expectedResult);
   t.end();
@@ -67,7 +67,7 @@ test('Flush in any hand', (t) => {
 test('Flush in any both hand', (t) => {
   const expectedResult = 'Black wins! - (Flush: H)';
   const blackHand = ['2H', '3H', '5H', 'JH', 'AH'];
-  const whiteHand = ['2C', '4C', '4C', '8C', 'DC'];
+  const whiteHand = ['2C', '4C', '4C', '8C', 'QC'];
 
   t.equal(pokerCalculator(blackHand, whiteHand), expectedResult);
   t.end();

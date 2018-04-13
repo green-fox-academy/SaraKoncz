@@ -4,55 +4,113 @@
 }
 
 html {
-    margin: auto;
+  margin: auto;
   width: 100%;  
   height: 100%;
 }
 
 body {
-  padding-top: 12vw;
+  padding-top: 2vw;
   font-family: 'Avenir', sans-serif;
-  background: #C9CCD3;
-  background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
-  background-blend-mode: lighten;
+  background: -webkit-linear-gradient(-41deg, rgb(201, 205, 211), rgb(187, 196, 211));
+  background: linear-gradient(-41deg, rgb(201, 205, 211), rgb(187, 196, 211));
   background-repeat: no-repeat;
 }
 
+.input-form {
+    font-size: 1vw;
+   width: 100%;
+   height: 8vh;
+   display: flex;
+   flex-direction: row;
+
+ } 
+
+span {
+  padding-right: 0.7vw;
+  color: rgb(41, 41, 41);
+  font-family: 'Fredoka One', cursive;
+}
+
+.title {
+ font-size: 1.7em;
+}
+
+input, button, submit { 
+  border: none; 
+  outline: none;
+} 
+
+button {
+  
+  background-image: linear-gradient(to bottom, rgb(99, 97, 97),rgb(99, 97, 97));
+  border-radius: 16px;
+  color: #ffffff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1em;
+  padding: 8px 8px 8px 8px;
+}
+
+button:hover {
+  background: #3cb0fd;  
+  background-image: linear-gradient(to bottom, rgb(99, 97, 97), rgb(99, 97, 97));
+}
+
+input {
+  margin-right: 1.4vw;
+  width: 18vw;
+  height: 2vw;
+  font-size: 1em;
+  background: transparent;
+  border-radius: 16px;
+  border: 1px solid rgb(99, 97, 97); 
+  border-bottom: 3px solid rgb(99, 97, 97);
+  border-left: 3px solid rgb(99, 97, 97);
+  font-family: 'Fredoka One', cursive;
+}
+
+input:focus {
+  background: transparent;
+  border: 1px solid black; 
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  border-radius: 16px;
+  background-color: #e3eaf2; 
+}
+
 .container {
-  left: 10%;
-  display: flex; 
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: center;
-  align-content: center;
+  width: 60%;
+  height: 220px;
   position: relative;
+  left: 2%;
   perspective: 800px;
+  display: flex;
+  flex-direction: row;
   animation: 2s move;
-  margin-bottom: 100px;
-  width: 600px;
 }
 
 .card {
-  /* padding: 1vw; */
-  width: 100px;
-  height: 200px;
+  margin: 0.2vw;
+  padding: 0.2vw;
+  width: 200px;
+  height: 300px;
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
+
 }
 
-
 .card div {
-  position: relative;
   display: inline-flex;
   flex-direction: row;
   border-radius: 10px;
-  height: 100%;
-  width: 100%;
+  height: 70%;
+  width: 80%;
   line-height: 160px;
   color: white;
   font-weight: bold;
   font-size: 100px;
+  position: fixed;
   backface-visibility: hidden;
 }
 
@@ -62,35 +120,54 @@ body {
 }
 
 .card .front1 {
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+background: -webkit-linear-gradient(-3deg, rgb(247, 128, 199), rgb(254, 206, 235));
+background: linear-gradient(-3deg, rgb(247, 128, 199), rgb(254, 206, 235));
+
 }
 
 .card .front2 {
-background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+background: -webkit-linear-gradient(-3deg, rgb(122, 243, 86), rgb(149, 209, 121));
+background: linear-gradient(-3deg, rgb(122, 243, 86), rgb(149, 209, 121));
+
 }
 
 .card .back {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
   background-blend-mode: screen;
   transform: rotateY( 180deg );
 }
 
 .card.flipped {
-  position: relative;
+/*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+
   transform: rotateY( 180deg );
 }
 
 .num {
+  color: #000;
   font-size: 0.5em;
   padding: 0px 10px 0 10px;
 }
 
+.result {
+  margin-top: 2vh;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: center;  
+  color: rgb(41, 41, 41);
+  font-family: 'Fredoka One', cursive;
+  
+}
 
 @keyframes move {
   from {
       left: 105%;
   }
   to {
-      left: 10%;
+      left: 2%;
   }
 }
