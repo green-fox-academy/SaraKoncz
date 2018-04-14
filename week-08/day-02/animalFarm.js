@@ -1,27 +1,16 @@
-let animal = {
-  hunger: 0,
-  thirst: 0,
-  inkAmount: 0,
-  create: function () {
-    this.hunger = 5;
-    this.thirst = 5;
-    return animal;
-  },
-  eat: function () {
+function Animal() {
+  this.hunger = 5;
+  this.thirst = 5;
+  this.eat = function () {
     this.hunger -= 1;
-  },
-  drink: function () {
+  };
+  this.drink = function () {
     this.thirst -= 1;
-  },
-  play: function () {
+  };
+  this.play = function () {
     this.hunger += 1;
     this.thirst += 1;
-  }
-}
-
-function animalConstructor() {
-  let newAnimal = animal.create();
-  return newAnimal;
+  };
 }
 
 // The farm has slots which defines the number of free places for animals
@@ -39,38 +28,36 @@ function animalConstructor() {
 // Print "okay" if the number of animals is above zero and under the slot number
 // Print "full" if the number of animals are at the maximum allowed
 
-let farm = {
-  slots: 0,
-  listOfAnimals: [],
-  status: '',
-  create: function (slots) {
-    this.slots = slots;
-    for (let i = 0; i < slots; i++) {
-      this.listOfAnimals.push(animalConstructor());
-    }
-    return farm;
-  },
-  breed: function () {
-    if (this.slots > this.listOfAnimals.length) {
-      this.listOfAnimals.push(animalConstructor());
+function Farm(slots) {
+  this.slots = slots;
+  this.animals = [];
+  this.status = '';
+
+  for (let i = 0; i < slots; i++) {
+    this.animals.push(new Animal());
+  };
+
+  this.breed = function () {
+    if (this.slots > this.animals.length) {
+      this.animals.push(new Animal());
       this.slots -= 1;
     }
-  },
-  adopt: function () {
+  };
+  this.adopt = function () {
     let sheepIndexToAdopt = 0;
-    this.listOfAnimals.forEach((e, i) => {
+    this.animals.forEach((e, i) => {
       if (e.hunger > sheepIndexToAdopt) {
         sheepIndexToAdopt = i;
       }
     });
-    this.listOfAnimals.splice(sheepIndexToAdopt, 1);
+    this.animals.splice(sheepIndexToAdopt, 1);
     this.slots++;
-  },
-  print: function () {
-    if (this.listOfAnimals.length === 0) {
+  };
+  this.print = function () {
+    if (this.animals.length === 0) {
       this.status = 'bankrupt';
     } else {
-      if (this.listOfAnimals.length === this.slots) {
+      if (this.animals.length === this.slots) {
         this.status = 'full';
         console.log('slots:' + this.slots)
       } else {
@@ -78,20 +65,55 @@ let farm = {
         console.log('slots:' + this.slots)
       }
     }
-    return `The farm has ${this.listOfAnimals.length} animals, we are ${this.status}`
-  },
-  progress: function () {
+    return `The farm has ${this.animals.length} animals, we are ${this.status}`
+  };
+  this.progress = function () {
 
-  }
+  };
 }
 
-const sheepFarm = farm.create(20);
-console.log(sheepFarm.listOfAnimals.length);
-sheepFarm.adopt();
-console.log(sheepFarm.listOfAnimals.length);
-console.log(sheepFarm.print());
-sheepFarm.breed();
+const SheepFarm = new Farm(20);
 
+//console.log(SheepFarm.animals); // Should log 20 Animal objects
+//const button = document.querySelector('button');
+console.log(SheepFarm.print());
+SheepFarm.adopt();
+console.log(SheepFarm.print());
+SheepFarm.breed();
+console.log(SheepFarm.print());
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+SheepFarm.adopt();
+console.log(SheepFarm.print());
 /*
 let signUpButton = document.querySelector('#signUpButton');
 signUpButton.addEventListener('click', () => {
