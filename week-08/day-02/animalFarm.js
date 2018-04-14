@@ -32,6 +32,7 @@ function Farm(slots) {
   this.slots = slots;
   this.animals = [];
   this.status = '';
+  this.dayCounter = 1;
 
   for (let i = 0; i < slots; i++) {
     this.animals.push(new Animal());
@@ -59,32 +60,54 @@ function Farm(slots) {
     } else {
       if (this.animals.length === this.slots) {
         this.status = 'full';
-        console.log('slots:' + this.slots)
       } else {
         this.status = 'okay';
-        console.log('slots:' + this.slots)
       }
     }
     return `The farm has ${this.animals.length} animals, we are ${this.status}`
   };
   this.progress = function () {
-
+    this.animals.forEach(e => {
+      if (Math.random >= 0.50) {
+        e.eat();
+      }
+      if (Math.random >= 0.50) {
+        e.drink();
+      }
+      if (Math.random >= 0.50) {
+        e.play();
+      }
+    });
+    this.breed();
+    this.adopt();
+    console.log(this.print());
+    this.dayCounter++;
   };
 }
 
 const SheepFarm = new Farm(20);
+document.querySelector("#currentDay").innerHTML = SheepFarm.dayCounter;
 
-//console.log(SheepFarm.animals); // Should log 20 Animal objects
-//const button = document.querySelector('button');
-console.log(SheepFarm.print());
-SheepFarm.adopt();
-console.log(SheepFarm.print());
-SheepFarm.breed();
-console.log(SheepFarm.print());
-SheepFarm.adopt();
-console.log(SheepFarm.print());
-/*
-let signUpButton = document.querySelector('#signUpButton');
-signUpButton.addEventListener('click', () => {
-  document.querySelector("#currentState").innerHTML = 'kacsa';
-});        */
+let stateButton = document.querySelector('#stateButton');
+stateButton.addEventListener('click', () => {
+  document.querySelector("#currentState").innerHTML = SheepFarm.print();
+});
+
+let adoptButton = document.querySelector('#adoptButton');
+adoptButton.addEventListener('click', () => {
+  SheepFarm.adopt();
+  document.querySelector("#currentState").innerHTML = SheepFarm.print();
+});
+
+let breedButton = document.querySelector('#breedButton');
+breedButton.addEventListener('click', () => {
+  SheepFarm.breed();
+  document.querySelector("#currentState").innerHTML = SheepFarm.print();
+});
+
+let progressButton = document.querySelector('#progressButton');
+progressButton.addEventListener('click', () => {
+  SheepFarm.progress();
+  document.querySelector("#currentState").innerHTML = SheepFarm.print();
+  document.querySelector("#currentDay").innerHTML = SheepFarm.dayCounter;
+}); 
