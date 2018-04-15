@@ -13,21 +13,6 @@ function Animal() {
   };
 }
 
-// The farm has slots which defines the number of free places for animals
-// The farm has list of Animals
-// The farm can breed() which creates a new animal if there's place for it
-// The farm can adopt() which removes the least hungry animal
-// The farm can print reports about their current state:
-// The farm has 11 living animals we are bankrupt
-// The farm can progress from day to a new day by calling it's progress() method:
-// All animals should have their methods called randomly with 50% chance
-// The farm should call its breed and adopt method at the end of each day
-// The farm should print report at the end of each day
-// Print the number of sheeps
-// Print "bankrupt" if no animals left
-// Print "okay" if the number of animals is above zero and under the slot number
-// Print "full" if the number of animals are at the maximum allowed
-
 function Farm(slots) {
   this.slots = slots;
   this.animals = [];
