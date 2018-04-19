@@ -49,37 +49,53 @@ app.get('/questions', function (req, res) {
   });
 });
 
+//select * from answers inner join questions on answers.question_id = questions.id;
 app.post('/question', function (req, res) {
-  const question = req.body.question;
-  const answer_1 = req.body.answer_1;
-  const is_correct1 = parseInt(req.body.is_correct1);
-  const answer_2 = req.body.answer_2;
-  const is_correct2 = parseInt(req.body.is_correct2);
-  const answer_3 = req.body.answer_3;
-  const is_correct3 = parseInt(req.body.is_correct3);
-  const answer_4 = req.body.answer_4;
-  const is_correct4 = parseInt(req.body.is_correct4);
+  const { question, answer_1, is_correct1, answer_2, is_correct2, answer_3, is_correct3, answer_4, is_correct4 } = req.body;
 
-  if (is_correct1 + is_correct2 + is_correct3 + is_correct4 !== 1) {
+  if (parseInt(is_correct1) + parseInt(is_correct2) + parseInt(is_correct3) + parseInt(is_correct4) !== 1) {
     res.json({
       error: 'Please provide one correct answer!'
     })
     return;
   } else {
-    conn.query(`INSERT INTO questions (question) VALUES ("${question}");`, function (err, res) {
+    conn.query(`INSERT INTO questions (question) VALUES ("${question}");`, function (err, question) {
       if (err) {
-        console.log(err);
         res.sendStatus(500);
-      } else {
-        console.log("done");
+        return;
       }
+      let questionID = question.insertId;
+      conn.query(`INSERT INTO answers (question_id, answer, is_correct) VALUES
+      (${questionID}, "${answer_1}", ${is_correct1}),
+      (${questionID}, "${answer_2}", ${is_correct2}),
+      (${questionID}, "${answer_3}", ${is_correct3}),
+      (${questionID}, "${answer_4}", ${is_correct4});`, function (err, answer) {
+          if (err) {
+            res.sendStatus(500);
+            return;
+          }
+        });
     });
-    res.sendStatus(200);
   }
+  res.sendStatus(200);
 });
 
 app.delete('/questions/:id', function (req, res) {
-
+  let deleteFromQuestions = `DELETE FROM questions WHERE id=${req.params.id};`
+  let deleteFromAnswers = `DELETE FROM answers WHERE question_id=${req.params.id};`
+  conn.query(deleteFromQuestions, function (err, result){
+    if (err) {
+      res.sendStatus(500);
+      return;
+    }
+    conn.query(deleteFromAnswers, function (req, result){
+      if (err) {
+        res.sendStatus(500);
+        return;
+      }
+    });
+  });
+  res.sendStatus(200);
 });
 
 app.listen(PORT, () => {
