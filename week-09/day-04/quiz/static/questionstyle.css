@@ -21,7 +21,7 @@ a {
 
 .questions {
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 30px;
   width: 650px;
   padding: 1em;
   border: 1px solid #CCC;
@@ -30,6 +30,7 @@ a {
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
   border-radius: 1em;
+  margin-bottom: 50px;
 }
 
 .questionBlock {
@@ -63,7 +64,7 @@ button {
 
 form {
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 30px;
   width: 650px;
   padding: 1em;
   border: 1px solid #CCC;
@@ -72,16 +73,29 @@ form {
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
   border-radius: 1em;
+  margin-bottom: 50px;
 }
 
+
 input, textarea {
-  width: 350px;
+  width: 500px;
   height: 40px;
   box-sizing: border-box;
-  margin-top: 10px; 
+  margin-left: 15px;
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   color: #5c5b5b; 
+  margin: 15px auto;
+  margin-right: 15px;
+  margin-left: 10px;
 }
 
+ans {
+  display: inline-flex;
+}
 
+.radio {
+  height: 1em;
+  margin-left: 10px;
+  width: 1em;
+}

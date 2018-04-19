@@ -16,38 +16,53 @@
         <p class="questionP">
           <%=question.question%>
         </p>
-        <button class="questionB">Delete</button>
+        <button class="deleteB" id="<%=question.id%>">Delete</button>
       </div>
       <% }); %>
   </div>
+  <h2>Add Questions</h2>
   <form id="addQuestion">
     <label for="question">
-      <input type="text" id="question" name="question" value="Type your question here">
+      <input type="text" id="question" name="question" placeholder="Type your question here">
     </label>
-    <span>Answers<span>
-        <label for="answer_1">
-          <span>#1</span>
-          <input type="text" id="answer_1" name="answer_1" value="Type your answer here">
-        </label>
-        <label for="answer_2">
-          <span>#2</span>
-          <input type="text" id="answer_2" name="answer_2" value="Type your answer here">
-        </label>
-        <label for="answer_3">
-          <span>#3</span>
-          <input type="text" id="answer_3" name="answer_3" value="Type your answer here">
-        </label>
-        <label for="answer_4">
-          <span>#4</span>
-          <input type="text" id="answer_4" name="answer_4" value="Type your answer here">
-        </label>
+    <br>
+    <span>Answers
+      <span>
+        <div class="ans">
+          <label for="answer_1">
+            <span>#1</span>
+            <input type="text" id="answer_1" name="answer_1" placeholder="Type your answer here">
+          </label>
+          <input class="radio" type="radio" name="radio">
+        </div>
+        <div class="ans">
+          <label for="answer_2">
+            <span>#2</span>
+            <input type="text" id="answer_2" name="answer_2" placeholder="Type your answer here">
+          </label>
+          <input class="radio" type="radio" name="radio">
+        </div>
+        <div class="ans">
+          <label for="answer_3">
+            <span>#3</span>
+            <input type="text" id="answer_3" name="answer_3" placeholder="Type your answer here">
+          </label>
+          <input class="radio" type="radio" name="radio">
+        </div>
+        <div class="ans">
+          <label for="answer_4">
+            <span>#4</span>
+            <input type="text" id="answer_4" name="answer_4" placeholder="Type your answer here">
+          </label>
+          <input class="radio" type="radio" name="radio">
+        </div>
 
-        <input type="submit" value="Send">
+        <input id="submitQ" type="submit" value="Send">
   </form>
   <div class="backToQuiz">
     <a href="localhost:8080/">Back To Quiz</a>
   </div>
-  <script src="static/script.js"></script>
+  <script src="static/questionscript.js"></script>
 </body>
 
 </html>

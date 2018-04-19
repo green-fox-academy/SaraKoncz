@@ -7,7 +7,7 @@ function changeclass() {
     } else {
       button.className = "red";
     }
-  })  
+  })
 }
 
 function reload() {
@@ -20,12 +20,7 @@ function resultCheck(buttons) {
       changeclass();
       window.setTimeout(reload, 1000);
     })
-  });  
+  });
 }
 
 resultCheck(buttons);
-
-
-
-  
-
