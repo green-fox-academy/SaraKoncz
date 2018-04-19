@@ -15,6 +15,30 @@ let conn = mysql.createConnection({
   database: 'quiz',
 });
 
+app.get('/', function (req, res) {
+  conn.query('SELECT * FROM questions;', function (err, questions) {
+    if (err) {
+      res.status(500).send('Database error');
+      return;
+    }
+    let randomQuestionID = Math.floor(Math.random() * (questions.length));
+    let questionID = questions[randomQuestionID].id;
+    let question = questions[randomQuestionID].question;
+    conn.query(`SELECT * FROM answers WHERE question_id=${questionID};`, function (err, answers) {
+      if (err) {
+        res.status(500).send('Database error');
+        return;
+      }
+      let response = {
+        id: questionID,
+        question: question,
+        answers: answers
+      }
+      res.render('game', { response });
+    });
+  });
+});
+
 app.get('/game', function (req, res) {
   conn.query('SELECT * FROM questions;', function (err, questions) {
     if (err) {
@@ -45,7 +69,7 @@ app.get('/questions', function (req, res) {
       res.status(500).send('Database error');
       return;
     }
-    res.json({ questions });
+    res.render('questions', { questions });
   });
 });
 
@@ -83,12 +107,12 @@ app.post('/question', function (req, res) {
 app.delete('/questions/:id', function (req, res) {
   let deleteFromQuestions = `DELETE FROM questions WHERE id=${req.params.id};`
   let deleteFromAnswers = `DELETE FROM answers WHERE question_id=${req.params.id};`
-  conn.query(deleteFromQuestions, function (err, result){
+  conn.query(deleteFromQuestions, function (err, result) {
     if (err) {
       res.sendStatus(500);
       return;
     }
-    conn.query(deleteFromAnswers, function (req, result){
+    conn.query(deleteFromAnswers, function (req, result) {
       if (err) {
         res.sendStatus(500);
         return;

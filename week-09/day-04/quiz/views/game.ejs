@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
+</head>
+
+<body>
+  <div class="quiz">
+    <p>
+      <%=response.question%>
+    </p>
+    <button id="button1" class="<%=response.answers[0].is_correct%>">
+      <%=response.answers[0].answer%>
+    </button>
+    <button id="button2" class="<%=response.answers[1].is_correct%>">
+      <%=response.answers[1].answer%>
+    </button>
+    <button id="button3" class="<%=response.answers[2].is_correct%>">
+      <%=response.answers[2].answer%>
+    </button>
+    <button id="button4" class="<%=response.answers[3].is_correct%>">
+      <%=response.answers[3].answer%>
+    </button>
+  </div>
+  <div class="manageQuestions">
+    <a href="localhost:8080/questions">Manage Questions</a>
+  </div>
+  <script src="static/script.js"></script>
+</body>
+
+</html>
