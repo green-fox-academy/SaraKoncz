@@ -19,6 +19,7 @@ form {
   border: 1px solid #CCC;
   background-color: #fff;
   font-family: 'Raleway', sans-serif;
+  display: flex;
 }
 
 form div {
