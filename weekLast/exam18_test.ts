@@ -10,10 +10,28 @@ test('common letters test without duplicaton', (t) => {
   t.end();
 });
 
-test('common letters test with duplicaton', (t) => {
+test('common letters test with duplicaton in string1', (t) => {
   const string1 = 'acabc';
   const string2 = 'cade';
   const expectedResult = ['a', 'c'];
+
+  t.deepEqual(commonLettersLister(string1, string2), expectedResult);
+  t.end();
+});
+
+test('common letters test with duplicaton in string2', (t) => {
+  const string1 = 'acb';
+  const string2 = 'cadeccccccc';
+  const expectedResult = ['a', 'c'];
+
+  t.deepEqual(commonLettersLister(string1, string2), expectedResult);
+  t.end();
+});
+
+test('common letters test with duplicaton in both strings', (t) => {
+  const string1 = 'ccacbcaca';
+  const string2 = 'cadeccccccc';
+  const expectedResult = ['c', 'a'];
 
   t.deepEqual(commonLettersLister(string1, string2), expectedResult);
   t.end();
