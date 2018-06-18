@@ -8,8 +8,8 @@ export function commonLettersLister(string1: string, string2: string): string[] 
     for (let j = 0; j < string2.length; j++) {
       if (string1[i] === string2[j]) {
         commonLetters.push(string1[i]);
-        for (let k = 0; k < i; k++) {
-          if (string1[k] === string1[i]) {
+        for (let k = 0; k < commonLetters.length-1; k++) {
+          if (commonLetters[commonLetters.length - 1] === commonLetters[k]) {
             commonLetters.pop();
           }
         }
@@ -19,4 +19,4 @@ export function commonLettersLister(string1: string, string2: string): string[] 
   return commonLetters;
 }
 
-console.log(commonLettersLister('acabc', 'cadexxxxxx'));
+console.log(commonLettersLister('acabxc', 'cadexxxxxx'));
